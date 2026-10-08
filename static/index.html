@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model router</title>
+<style>
+  :root{--ink:#1c1c1c;--muted:#6f6f6f;--line:#e4e4e4;--route:#1d4ed8;--warn:#b42318;--bg:#fff;--soft:#f6f6f6}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+    font:14px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+  body{display:grid;grid-template-columns:minmax(280px,34%) 1fr;height:100vh}
+  @media (max-width:760px){body{grid-template-columns:1fr;height:auto}}
+  h1{font-size:14px;font-weight:600;margin:0 0 20px}
+  h2{font-size:13px;font-weight:500;color:var(--muted);margin:0 0 8px}
+  aside{border-right:1px solid var(--line);padding:24px 24px 24px;overflow:auto;display:flex;flex-direction:column;gap:20px}
+  main{padding:24px 32px;overflow:auto;max-width:860px}
+  select,input[type=number],textarea{font:inherit;border:1px solid var(--line);border-radius:3px;padding:6px 8px;background:#fff;color:var(--ink)}
+  select{width:100%}
+  textarea{width:100%;height:84px;resize:vertical}
+  textarea:focus,select:focus,input:focus,button:focus-visible{outline:2px solid var(--route);outline-offset:1px}
+  .list{display:flex;flex-direction:column;gap:2px}
+  .item{padding:8px 10px;border-left:2px solid transparent;cursor:pointer;border-radius:0 3px 3px 0}
+  .item:hover{background:var(--soft)}
+  .item.sel{border-left-color:var(--ink);background:var(--soft)}
+  .item b{font-weight:600}
+  .item .meta{color:var(--muted);margin-left:6px}
+  .item .text{display:block;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .empty{color:var(--muted);padding:8px 10px}
+  button{font:inherit;border:1px solid var(--ink);border-radius:3px;background:var(--ink);color:#fff;padding:6px 14px;cursor:pointer}
+  button.quiet{background:#fff;color:var(--ink)}
+  button.link{border:0;background:none;color:var(--muted);padding:0;text-decoration:underline}
+  button:disabled{opacity:.5;cursor:default}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .seg button{border:0;border-radius:0;background:#fff;color:var(--ink);padding:5px 12px}
+  .seg button+button{border-left:1px solid var(--line)}
+  .seg button.on{background:var(--ink);color:#fff}
+  .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .controls{display:flex;flex-direction:column;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .hint{color:var(--muted);margin:28px 0}
+  .decision{margin:28px 0 6px;font-size:28px;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+  .decision .model{color:var(--route)}
+  .decision .fb{font-size:14px;font-weight:400;color:var(--warn);margin-left:10px}
+  .why{color:var(--muted);max-width:68ch;margin:0 0 22px}
+  dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 24px;margin:0 0 22px}
+  dt{color:var(--muted)} dd{margin:0}
+  .answer{white-space:pre-wrap;border-top:1px solid var(--line);padding-top:16px;max-width:72ch}
+  .answer.err{color:var(--warn)}
+  .tiers{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 22px;padding:10px 12px;background:var(--soft);border-radius:3px}
+  .tiers div{color:var(--muted)} .tiers b{display:block;color:var(--ink);font-weight:500} .tiers .on b{color:var(--route)}
+  .cmp{margin:18px 0 0} .cmp table{width:auto} .cmp td:first-child{font-weight:500}
+  .save{color:#15803d}
+  section.bench{margin-top:40px;border-top:1px solid var(--line);padding-top:14px}
+  .log{font-size:12px;color:var(--muted);white-space:pre-wrap;max-height:160px;overflow:auto;margin:10px 0}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin-top:8px}
+  th,td{text-align:right;padding:6px 10px 6px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{font-weight:500;color:var(--muted)} th:first-child,td:first-child{text-align:left}
+  .scroll{overflow-x:auto}
+  [hidden]{display:none!important}
+</style></head>
+<body>
+<aside>
+  <div>
+    <h1>Model router</h1>
+    <h2>Category</h2>
+    <select id="cat" aria-label="Prompt category"></select>
+  </div>
+  <div>
+    <h2>Prompts</h2>
+    <div class="list" id="list"></div>
+  </div>
+  <div>
+    <h2>Or write your own</h2>
+    <textarea id="custom" placeholder="Custom prompts get no quality score because there is no reference answer." aria-label="Custom prompt"></textarea>
+  </div>
+</aside>
+<main>
+  <div class="controls">
+    <div class="row">
+      <span style="color:var(--muted)">Difficulty classifier</span>
+      <div class="seg" id="clfSeg"><button data-v="deberta" class="on">DeBERTa</button><button data-v="rules">Rules</button><button data-v="hybrid">Hybrid</button></div>
+      <span style="color:var(--muted)">DeBERTa is a local zero-shot encoder, no API cost. Rules are keyword matching, for comparison.</span>
+    </div>
+    <div class="row"><button id="run">Run</button><label style="color:var(--muted)"><input type="checkbox" id="reasoning"> allow reasoning on frontier</label></div>
+  </div>
+  <div id="result"><p class="hint">Pick a category and a prompt, or write one, then run.</p></div>
+  <section class="bench">
+    <button class="link" id="toggleBench">Show benchmark</button>
+    <div id="benchBox" hidden>
+      <div class="row" style="margin-top:12px">
+        <button class="quiet" id="bench">Run benchmark</button>
+        <label style="color:var(--muted)">prompts <input id="limit" type="number" value="0" min="0" max="30" style="width:56px" title="0 runs all 30"></label>
+        <label style="color:var(--muted)"><input type="checkbox" id="benchClf"> also DeBERTa and hybrid routers</label>
+        <span style="color:var(--muted)">always cheapest, always frontier, router. Sequential, so it takes a while.</span>
+      </div>
+      <div id="benchout"></div>
+    </div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const nice = s => s.replaceAll('_', ' ');
+let prompts = [], selected = null, classifier = 'deberta';
+const mode = null;  // priority is derived from the detected workload
+
+fetch('/prompts').then(r => r.json()).then(ps => {
+  prompts = ps;
+  [...new Set(ps.map(p => p.domain))].forEach(d => { const o = document.createElement('option'); o.value = d; o.textContent = nice(d); $('cat').appendChild(o); });
+  renderList();
+});
+$('cat').onchange = () => { selected = null; renderList(); };
+function renderList() {
+  const cat = $('cat').value; $('list').innerHTML = '';
+  const ps = prompts.filter(p => p.domain === cat);
+  if (!ps.length) { $('list').innerHTML = '<div class="empty">No prompts in this category.</div>'; return; }
+  ps.forEach(p => {
+    const d = document.createElement('div'); d.className = 'item' + (selected === p ? ' sel' : ''); d.tabIndex = 0;
+    d.innerHTML = `<b>${esc(p.id)}</b><span class="meta">${esc(p.priority)} priority</span><span class="text">${esc(p.prompt.split('\n')[0])}</span>`;
+    const pick = () => { selected = p; $('custom').value = ''; document.querySelectorAll('.item').forEach(x => x.classList.remove('sel')); d.classList.add('sel'); };
+    d.onclick = pick; d.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } };
+    $('list').appendChild(d);
+  });
+}
+$('custom').oninput = () => { selected = null; document.querySelectorAll('.item').forEach(x => x.classList.remove('sel')); };
+
+let lastRun = null;
+async function runCompare() {
+  $('cmpBtn').disabled = true; $('cmpOut').innerHTML = '<p class="hint" style="margin:10px 0">Running both baselines…</p>';
+  try {
+    const rows = await fetch('/compare', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lastRun.body) }).then(r => r.json());
+    const all = [rows[0], rows[1], { ...lastRun.r, config: 'router' }];
+    const fr = rows[1].cost_inr;
+    $('cmpOut').innerHTML = `<table><tr><th>config</th><th>model</th><th>latency</th><th>cost ₹</th><th>quality</th><th>vs frontier</th></tr>` +
+      all.map(x => `<tr><td>${esc(x.config)}</td><td style="text-align:left">${esc(x.model)}</td><td>${ms(x.total_latency_ms)}</td><td>${inr(x.cost_inr)}</td>
+        <td>${x.quality_score == null ? 'n/a' : x.quality_score + ' / 10'}</td><td class="save">${fr ? ((1 - x.cost_inr / fr) * 100).toFixed(0) + '% cheaper' : ''}</td></tr>`).join('') + '</table>';
+  } catch (e) { $('cmpOut').innerHTML = `<p class="hint" style="color:var(--warn)">Comparison failed: ${esc(e.message)}</p>`; }
+  $('cmpBtn').disabled = false;
+}
+// segmented controls
+document.querySelectorAll('.seg').forEach(seg => seg.querySelectorAll('button').forEach(b => b.onclick = () => {
+  seg.querySelectorAll('button').forEach(x => x.classList.remove('on')); b.classList.add('on');
+  if (seg.id === 'clfSeg') classifier = b.dataset.v;
+}));
+
+const inr = x => '₹' + Number(x || 0).toFixed(4), usd = x => '$' + Number(x || 0).toFixed(6);
+const ms = x => Math.round(x).toLocaleString() + ' ms';
+
+$('run').onclick = async () => {
+  const prompt = $('custom').value.trim() || (selected && selected.prompt);
+  if (!prompt) { $('result').innerHTML = '<p class="hint">Nothing to run yet. Pick a prompt or write one.</p>'; return; }
+  $('run').disabled = true; $('result').innerHTML = '<p class="hint">Running…</p>';
+  try {
+    const body = { prompt, mode, prompt_id: selected ? selected.id : null, reasoning: $('reasoning').checked, classifier };
+    const r = await fetch('/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(r => r.json());
+    const quality = r.quality_score == null ? 'not scored' : `${r.quality_score} / 10`;
+    $('result').innerHTML = `
+      <div class="decision">${esc(r.route)} <span class="model">${esc(r.model)}</span>
+        ${r.fallback_fired && r.route !== r.first_route ? `<span class="fb">fell back from ${esc(r.first_route)}</span>` : ''}</div>
+      <p class="why">${esc(r.why)}</p>
+      <dl>
+        <dt>Workload</dt><dd>${esc(r.workload)} <span style="color:var(--muted)">so the priority is <b>${esc(r.priority)}</b></span></dd>
+        <dt>Language</dt><dd>${esc(r.language)}${r.is_indic ? ' (Indic)' : ''}</dd>
+        <dt>Difficulty</dt><dd>${esc(r.difficulty)} <span style="color:var(--muted)">via ${esc(r.classifier)}: ${esc(r.detail)}</span></dd>
+        <dt>Latency</dt><dd>${ms(r.total_latency_ms)} <span style="color:var(--muted)">(router ${r.router_overhead_ms} ms, model ${ms(r.model_latency_ms)})</span></dd>
+        <dt>Tokens</dt><dd>${r.input_tokens} in, ${r.output_tokens} out</dd>
+        <dt>Cost</dt><dd>${inr(r.cost_inr)} <span style="color:var(--muted)">${usd(r.cost_usd)}${r.provider_cost_usd != null ? ', provider reported ' + usd(r.provider_cost_usd) : ''}</span></dd>
+        <dt>Quality</dt><dd>${quality} <span style="color:var(--muted)">${esc(r.quality_method)}${r.quality_reason ? '. ' + esc(r.quality_reason) : ''}. Judge cost ${inr(r.judge_cost_inr)}</span></dd>
+        <dt>Fallback</dt><dd>${r.fallback_fired ? 'yes. ' + esc(r.fallback_reason) : 'no'}${r.retries ? ' <span style="color:var(--muted)">(' + r.retries + ' same-model retry' + (r.retries > 1 ? 'ies' : '') + ' on rate limit / overload)</span>' : ''}</dd>
+        ${r.error !== 'none' ? `<dt>Error</dt><dd style="color:var(--warn)">${esc(r.error)} ${esc(r.error_detail)}</dd>` : ''}
+      </dl>
+      <div class="tiers">${Object.entries(r.cost_if_tier_inr).map(([t, v]) => `<div class="${t === r.route ? 'on' : ''}">${esc(t)}<b>${inr(v)}</b></div>`).join('')}
+        <div style="align-self:center">estimated cost of this request on each tier, at its token count</div></div>
+      <div class="answer ${r.error !== 'none' ? 'err' : ''}">${esc(r.answer || (r.error !== 'none' ? 'No answer was returned.' : ''))}</div>
+      <div class="cmp"><button class="quiet" id="cmpBtn">Compare with always cheapest and always frontier</button>
+        <span style="color:var(--muted)">runs the same prompt on both baselines, real calls</span><div id="cmpOut"></div></div>`;
+    lastRun = { body, r };
+    $('cmpBtn').onclick = runCompare;
+  } catch (e) {
+    $('result').innerHTML = `<p class="hint" style="color:var(--warn)">The request failed: ${esc(e.message)}. Is the server running?</p>`;
+  }
+  $('run').disabled = false;
+};
+
+// benchmark
+$('toggleBench').onclick = () => { const h = $('benchBox').hidden; $('benchBox').hidden = !h; $('toggleBench').textContent = h ? 'Hide benchmark' : 'Show benchmark'; if (h) poll(); };
+const cols = [['config','config'],['n','n'],['cost_inr','cost ₹'],['cost_usd','cost $'],['mean_latency_ms','mean ms'],['p95_latency_ms','p95 ms'],
+  ['mean_quality','quality'],['resolved_rate','resolved'],['cost_per_resolved_inr','₹ / resolved'],['fallback_rate','fallback'],['error_rate','errors'],['routing_accuracy','difficulty acc'],['workload_accuracy','workload acc'],['judge_cost_usd','judge $'],
+  ['mix_cheap','cheap'],['mix_indic','indic'],['mix_mid','mid'],['mix_upper_mid','upper mid'],['mix_frontier','frontier']];
+const pct = v => v === '' || v == null ? '' : (Number(v) * 100).toFixed(0) + '%';
+const fmt = (k, v) => /^(mix_|fallback_rate|error_rate|routing_accuracy|workload_accuracy|resolved_rate)/.test(k) ? pct(v) : v;
+$('bench').onclick = async () => { await fetch('/benchmark?limit=' + ($('limit').value || 0) + '&classifiers=' + $('benchClf').checked, { method: 'POST' }); poll(); };
+async function poll() {
+  const s = await fetch('/benchmark/status').then(r => r.json());
+  let h = s.log.length ? `<div class="log">${esc(s.log.join('\n'))}</div>` : '';
+  if (s.running) h = `<p class="hint" style="margin:10px 0">Benchmark running…</p>` + h;
+  if (s.summary.length) h += `<div class="scroll"><table><tr>${cols.map(c => `<th>${c[1]}</th>`).join('')}</tr>` +
+    s.summary.map(r => `<tr>${cols.map(c => `<td>${esc(fmt(c[0], r[c[0]]))}</td>`).join('')}</tr>`).join('') + '</table></div>';
+  $('benchout').innerHTML = h;
+  const l = document.querySelector('.log'); if (l) l.scrollTop = l.scrollHeight;
+  if (s.running) setTimeout(poll, 3000);
+}
+</script>
+</body></html>
