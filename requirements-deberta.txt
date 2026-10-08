@@ -1,5 +1,0 @@
-# optional: only needed for ROUTER_CLASSIFIER = deberta | hybrid
-torch>=2.2
-transformers>=4.40
-sentencepiece
-protobuf
