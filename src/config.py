@@ -118,6 +118,8 @@ JUDGE_TIER = "mid"         # LLM-as-judge runs on this tier; its cost is reporte
 MAX_OUTPUT_TOKENS = 1024   # serving calls
 TEMPERATURE = 0.2
 
-LOG_DIR = "logs"
-RESULTS_DIR = "results"
-PROMPTS_FILE = "data/prompts.json"
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # paths work from any working directory
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+RESULTS_DIR = os.path.join(BASE_DIR, "results")
+PROMPTS_FILE = os.path.join(BASE_DIR, "data", "prompts.json")

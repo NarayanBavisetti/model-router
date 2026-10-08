@@ -1,9 +1,9 @@
-"""FastAPI app: serves the single-page UI and three endpoints. Run: uvicorn app:app --reload"""
+"""FastAPI app: serves the single-page UI and three endpoints. Run from src/: uvicorn app:app --reload"""
 import threading, subprocess, sys, os, csv
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from config import MODELS, USD_TO_INR, RESULTS_DIR
+from config import MODELS, USD_TO_INR, RESULTS_DIR, BASE_DIR
 from engine import load_prompts, run_request
 
 app = FastAPI(title="Model Router")
@@ -21,7 +21,7 @@ class RunBody(BaseModel):
 
 @app.get("/")
 def index():
-    return FileResponse("static/index.html")
+    return FileResponse(os.path.join(BASE_DIR, "static", "index.html"))
 
 
 @app.get("/prompts")
@@ -57,8 +57,8 @@ def compare(body: RunBody):
 
 def _run_benchmark(args):
     _bench.update(running=True, log=[], returncode=None)
-    proc = subprocess.Popen([sys.executable, "run_benchmark.py", *args], stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, text=True)
+    proc = subprocess.Popen([sys.executable, os.path.join(BASE_DIR, "run_benchmark.py"), *args], cwd=BASE_DIR,
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     for line in proc.stdout:
         _bench["log"].append(line.rstrip())
     proc.wait()
