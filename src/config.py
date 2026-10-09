@@ -115,7 +115,7 @@ RETRY_BACKOFF_S = 1.0   # used when the provider sends no Retry-After header
 
 QUALITY_FLOOR = 5          # judge score (0-10) below which the router escalates once
 JUDGE_TIER = "mid"         # LLM-as-judge runs on this tier; its cost is reported separately
-MAX_OUTPUT_TOKENS = 1024   # serving calls
+MAX_OUTPUT_TOKENS = 4096   # serving calls; 1024 and 2048 both cut off long-document answers (finish_reason=length), see README
 TEMPERATURE = 0.2
 
 import os

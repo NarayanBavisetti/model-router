@@ -32,8 +32,12 @@ def score(prompt_item: dict, answer: str) -> dict:
     if prompt_item["domain"] == "classification":
         ref, ans = _norm(prompt_item["reference_or_rubric"]), _norm(answer)
         # exact match, or the label is the whole first line / the answer is short and contains only that label
-        first = ans.split("\n")[0].strip()
-        ok = ans == ref or first == ref or (ref in ans and len(ans.split()) <= len(ref.split()) + 3)
+        lines = [l.strip() for l in ans.split("\n") if l.strip()]
+        first, last = (lines[0], lines[-1]) if lines else ("", "")
+        # Accept the label as the whole answer, as the first line, as the last line (prompts that ask for
+        # reasoning first and the label at the end), or as a short answer that contains nothing else.
+        ok = (ans == ref or first == ref or last == ref or last.endswith(" " + ref) or last.startswith(ref + " ")
+              or (ref in ans and len(ans.split()) <= len(ref.split()) + 3))
         return {**base, "score": 10 if ok else 0, "method": "exact_match",
                 "reason": f"expected '{ref}', got '{ans[:40]}'"}
 

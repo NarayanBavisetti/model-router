@@ -1,7 +1,7 @@
 """FastAPI app: serves the single-page UI and three endpoints. Run from src/: uvicorn app:app --reload"""
-import threading, subprocess, sys, os, csv
+import threading, subprocess, sys, os, csv, json, queue
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 from config import MODELS, USD_TO_INR, RESULTS_DIR, BASE_DIR
 from engine import load_prompts, run_request
@@ -35,14 +35,50 @@ def models():
     return {"usd_to_inr": USD_TO_INR, "models": MODELS}
 
 
+def _resolve(body: RunBody) -> tuple[dict, bool]:
+    """Match the text to a dataset prompt (by id, or by exact text) so the judge has a rubric. Otherwise it is a
+    custom prompt: judge is skipped because there is no reference answer."""
+    ps = load_prompts()
+    item = next((p for p in ps if p["id"] == body.prompt_id), None)
+    if item is None or item["prompt"] != body.prompt:
+        item = next((p for p in ps if p["prompt"] == body.prompt), None)
+    if item is None:
+        return {"id": "custom", "domain": "custom", "prompt": body.prompt, "reference_or_rubric": ""}, False
+    return item, True
+
+
 @app.post("/run")
 def run(body: RunBody):
-    item = next((p for p in load_prompts() if p["id"] == body.prompt_id), None)
-    if item is None or item["prompt"] != body.prompt:  # custom / edited prompt: judge needs a rubric, so skip judge
-        item = {"id": "custom", "domain": "custom", "prompt": body.prompt, "reference_or_rubric": ""}
-        return run_request(item, body.mode, body.config, reasoning=body.reasoning, judge=False,
-                           classifier=body.classifier)
-    return run_request(item, body.mode, body.config, reasoning=body.reasoning, classifier=body.classifier)
+    item, judge = _resolve(body)
+    return run_request(item, body.mode, body.config, reasoning=body.reasoning, judge=judge, classifier=body.classifier)
+
+
+@app.post("/run/stream")
+def run_stream(body: RunBody):
+    """Same as /run but as server-sent events: one event per stage (routed, calling, called, judging, judged,
+    fallback) and a final `done` with the full record. The UI animates the pipeline from these."""
+    item, judge = _resolve(body)
+    q: queue.Queue = queue.Queue()
+
+    def work():
+        try:
+            rec = run_request(item, body.mode, body.config, reasoning=body.reasoning, judge=judge,
+                              classifier=body.classifier, on_event=lambda name, payload: q.put((name, payload)))
+            q.put(("done", rec))
+        except Exception as e:  # surface the failure to the UI instead of hanging the stream
+            q.put(("error", {"message": f"{type(e).__name__}: {e}"}))
+        q.put(None)
+
+    threading.Thread(target=work, daemon=True).start()
+
+    def gen():
+        yield f"event: start\ndata: {json.dumps({'judge': judge, 'prompt_id': item['id']})}\n\n"
+        while (ev := q.get()) is not None:
+            name, payload = ev
+            yield f"event: {name}\ndata: {json.dumps(payload, ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(gen(), media_type="text/event-stream",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
 @app.post("/compare")

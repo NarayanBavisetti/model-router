@@ -7,3 +7,5 @@ torch>=2.2
 transformers>=4.40
 sentencepiece
 protobuf
+# long-form test documents (PDF text extraction)
+pymupdf

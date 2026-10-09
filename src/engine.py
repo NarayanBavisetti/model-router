@@ -15,9 +15,35 @@ LOG_FIELDS = ["timestamp", "run_id", "prompt_id", "domain", "workload", "priorit
               "reasoning_used", "answer"]
 
 
+def _read_source(rel: str) -> str:
+    """Long-form inputs live as real files under data/: PDFs (text extracted with PyMuPDF, the way a
+    document pipeline would feed a model) or .txt call transcripts. Cached per process."""
+    if rel in _SOURCE_CACHE:
+        return _SOURCE_CACHE[rel]
+    path = os.path.join(os.path.dirname(PROMPTS_FILE), rel)
+    if path.lower().endswith(".pdf"):
+        import pymupdf
+        with pymupdf.open(path) as doc:
+            text = "\n".join(f"--- page {i + 1} ---\n" + page.get_text() for i, page in enumerate(doc))
+    else:
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+    _SOURCE_CACHE[rel] = text.strip()
+    return _SOURCE_CACHE[rel]
+
+
+_SOURCE_CACHE: dict[str, str] = {}
+
+
 def load_prompts():
+    """prompts.json entries may carry `source_file` (relative to data/); the file's text is appended to
+    the instruction so the model, the classifier and the judge all see the full document."""
     with open(PROMPTS_FILE, encoding="utf-8") as f:
-        return json.load(f)
+        items = json.load(f)
+    for p in items:
+        if p.get("source_file"):
+            p["prompt"] = p["prompt"].rstrip() + "\n\n" + _read_source(p["source_file"])
+    return items
 
 
 def _log(rec: dict):
@@ -34,10 +60,14 @@ def _log(rec: dict):
 
 
 def run_request(prompt_item: dict, mode: str | None = None, config: str = "router", run_id: str = "",
-                reasoning: bool = False, judge: bool = True, classifier: str | None = None) -> dict:
+                reasoning: bool = False, judge: bool = True, classifier: str | None = None,
+                on_event=None) -> dict:
     """prompt_item needs at least {id, domain, prompt, reference_or_rubric}. hidden_difficulty is copied
-    to the log for scoring routing accuracy but is never read by the router."""
+    to the log for scoring routing accuracy but is never read by the router.
+    on_event(name, payload) is called at each stage (routed, calling, called, judging, judged, fallback)
+    so a UI can show progress; it is optional and has no effect on the result."""
     prompt = prompt_item["prompt"]
+    emit = on_event or (lambda name, payload: None)
     t_start = time.perf_counter()
 
     # 1. decide
@@ -62,19 +92,26 @@ def run_request(prompt_item: dict, mode: str | None = None, config: str = "route
         precheck = f"{tier} unhealthy ({health.recent_failures(tier)} failures in last 30 s) -> {FAILOVER_TIER[tier]}"
         decision["why"] += f"; pre-check: {precheck}"
         tier = FAILOVER_TIER[tier]
+    emit("routed", {**decision, "tier": tier, "model": MODELS[tier]["model_id"], "precheck": precheck})
 
     # 2. call (+ score) with at most one escalation
     attempts, fallback_reason = [], ""
     for attempt in range(2):
+        emit("calling", {"tier": tier, "model": MODELS[tier]["model_id"], "attempt": attempt + 1})
         res = call_model(tier, prompt, reasoning=reasoning)
         q = {"score": None, "method": "skipped", "reason": "", "judge_cost_usd": 0.0,
              "judge_input_tokens": 0, "judge_output_tokens": 0}
         if res["error"] == "none" and looks_like_refusal(res["text"]):
             res["error"] = "refusal"
         health.record(tier, res["error"] in ("none", "refusal"))  # refusals are the model answering, not an outage
-        if res["error"] == "none" and judge:
-            q = score_answer(prompt_item, res["text"])
         served = res.get("served_tier") or tier  # OpenRouter may have run our server-side fallback model
+        emit("called", {"tier": served, "asked": tier, "model": res.get("served_model") or MODELS[tier]["model_id"],
+                        "latency_ms": res["latency_ms"], "error": res["error"], "error_detail": res["error_detail"],
+                        "input_tokens": res["input_tokens"], "output_tokens": res["output_tokens"], "retries": res["retries"]})
+        if res["error"] == "none" and judge:
+            emit("judging", {"tier": served, "method": "exact match or LLM judge"})
+            q = score_answer(prompt_item, res["text"])
+            emit("judged", {"score": q["score"], "method": q["method"], "reason": q["reason"]})
         attempts.append({"tier": served, "res": res, "q": q, "asked": tier})
 
         problem = None
@@ -86,6 +123,7 @@ def run_request(prompt_item: dict, mode: str | None = None, config: str = "route
         up = FAILOVER_TIER.get(tier) if is_outage else next_tier(tier)  # outage: one down; bad answer: one up
         if problem and allow_fallback and attempt == 0 and up:
             fallback_reason = f"{problem} on {tier} -> retry {up}"
+            emit("fallback", {"from": tier, "to": up, "reason": fallback_reason, "outage": is_outage})
             tier = up
             continue
         if problem and allow_fallback and attempt == 0 and not up:

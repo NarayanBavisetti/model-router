@@ -1,0 +1,4 @@
+config,n,cost_usd,cost_inr,input_tokens,output_tokens,blended_in_usd_per_m,blended_out_usd_per_m,mean_latency_ms,p95_latency_ms,mean_router_overhead_ms,mean_quality,resolved_rate,cost_per_resolved_inr,fallback_rate,error_rate,routing_accuracy,workload_accuracy,judge_cost_usd,mix_cheap,mix_indic,mix_mid,mix_upper_mid,mix_frontier
+always_cheapest,30,0.0044,0.39,3607,10127,0.1,0.4,2375.0,4539.0,187.871,8.87,0.867,0.0149,0.0,0.0,0.733,0.933,0.0158,1.0,0.0,0.0,0.0,0.0
+always_frontier,30,0.2542,22.37,6045,11500,4.0,20.0,6222.0,12244.0,175.816,8.67,0.833,0.8947,0.0,0.0,0.733,0.933,0.0123,0.0,0.0,0.0,0.0,1.0
+router,30,0.1068,9.4,5315,10724,2.8514,8.547,3954.0,10520.0,182.829,8.7,0.767,0.4087,0.067,0.0,0.733,0.933,0.0132,0.1,0.4,0.067,0.333,0.1

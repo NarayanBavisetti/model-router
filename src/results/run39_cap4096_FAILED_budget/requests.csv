@@ -1,0 +1,1734 @@
+timestamp,run_id,prompt_id,domain,workload,priority,config,classifier,route,why,model,language,difficulty,hidden_difficulty,input_tokens,output_tokens,cost_usd,cost_inr,provider_cost_usd,router_overhead_ms,model_latency_ms,total_latency_ms,quality_score,quality_method,fallback_fired,fallback_reason,precheck_skipped,server_side_fallback,retries,error,judge_cost_usd,judge_tokens,reasoning_used,answer
+2026-10-09T01:55:59+00:00,806e295a,cc_01,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,medium,136,94,5.1e-05,0.0045,5.1e-05,232.685,2495.8,2728.5,10,llm_judge:mid,False,,,False,0,none,0.000409,434,False,"Here's a summary of the call in three bullet points:
+
+*   **Issue:** Customer's debit card was declined twice at a petrol pump despite having sufficient balance.
+*   **Action Taken:** The agent identified the card was temporarily blocked by the fraud system due to two quick transactions and has now unblocked it.
+*   **Next Step:** The card will be functional within 10 minutes, and the customer will receive an SMS confirmation."
+2026-10-09T01:56:03+00:00,806e295a,cc_02,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,medium,medium,148,108,5.8e-05,0.0051,5.8e-05,223.281,1703.1,1926.4,10,llm_judge:mid,False,,,False,0,none,0.000463,473,False,"Here's a short summary of the call in English:
+
+**Issue:** The customer's order (FM88213) has been showing ""out for delivery"" for 4 days but has not arrived.
+
+**Resolution:** The agent identified that the delivery partner entered the wrong pincode. The agent has re-dispatched the order, and it is expected to arrive by tomorrow.
+
+**Follow-up:** If the order does not arrive by tomorrow evening, the customer can call back for a full refund."
+2026-10-09T01:56:06+00:00,806e295a,cc_03,call_centre_summary,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,easy,medium,133,90,4.9e-05,0.0043,4.9e-05,256.693,1100.5,1357.2,9,llm_judge:mid,False,,,False,0,none,0.000463,445,False,"**कॉल का सारांश:**
+
+ग्राहक ने पावरग्रिड सपोर्ट को सूचित किया कि उनके घर में कल रात से बिजली नहीं आ रही है, जबकि पड़ोस में बिजली आपूर्ति सामान्य है। एजेंट ने ग्राहक का कंज्यूमर नंबर लेकर जांच की और बताया कि मीटर में खराबी है। उन्होंने आज शाम 5 बजे के लिए एक टेक्नीशियन की विज़िट बुक कर दी है और शिकायत संख्या 7781 बताई है।"
+2026-10-09T01:56:12+00:00,806e295a,cc_04,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,323,576,0.000263,0.0231,0.000263,278.806,2830.7,3109.5,7,llm_judge:mid,False,,,False,0,none,0.001105,1253,False,"Here's the breakdown of the call:
+
+**(a) Summary of the Call:**
+
+The customer contacted SkyNet Broadband to report a prolonged internet outage that lasted from Monday at 9 am to Thursday at 3 pm. They were also charged a ₹350 technician visit fee. The agent confirmed the outage was due to a fibre cut at the street junction box, which is the provider's responsibility. The technician fee was incorrectly applied. The customer is seeking a refund for the outage and the technician fee, and expressed concern about the recurring nature of the problem.
+
+**(b) Root Cause of the Customer's Problem:**
+
+The root cause of the customer's problem was a **fibre cut at the street junction box**, which is a fault on the provider's side.
+
+**(c) Calculation of the Exact Refund the Customer is Owed:**
+
+**Reasoning:**
+
+1.  **Outage Duration:**
+    *   Outage started: Monday 9 am
+    *   Outage ended: Thursday 3 pm
+    *   Full days of outage:
+        *   Monday: 9 am to midnight = 15 hours (not a full day)
+        *   Tuesday: Full day
+        *   Wednesday: Full day
+        *   Thursday: Midnight to 3 pm = 15 hours (not a full day)
+    *   Therefore, there were **2 full days** of outage (Tuesday and Wednesday).
+
+2.  **Daily Credit Rate:**
+    *   Monthly plan cost: ₹1,200
+    *   Policy states: (monthly plan / 30) per full day of outage.
+    *   Daily rate = ₹1,200 / 30 = ₹40 per day.
+
+3.  **Credit for Outage:**
+    *   Number of full days of outage: 2 days
+    *   Credit for outage = 2 days * ₹40/day = ₹80
+
+4.  **Refund for Technician Visit Fee:**
+    *   The policy states: ""If the customer was also charged a technician visit fee for a fault that turned out to be on the provider's side, that fee (₹350) is refunded in full.""
+    *   The agent confirmed the fault was a fibre cut at the street junction box (provider's side).
+    *   Refund for technician fee = ₹350
+
+5.  **Total Refund:**
+    *   Total refund = Credit for outage + Refund for technician fee
+    *   Total refund = ₹80 + ₹350 = ₹430
+
+**Exact Refund Owed:**
+
+The customer is owed a total refund of **₹430**."
+2026-10-09T01:56:16+00:00,806e295a,cc_05,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,133,93,5.1e-05,0.0044,5.1e-05,241.198,1602.9,1844.1,9,llm_judge:mid,False,,,False,0,none,0.000434,435,False,"Here's a 3-point summary of the call in English:
+
+*   The customer reported a gas cylinder booking (CG4471) that had not been delivered for a week.
+*   The agent explained that a delivery vehicle breakdown in the customer's area caused the delay.
+*   The agent assured the customer that the delivery would be made by 10 AM the next day, and an SMS notification would be sent."
+2026-10-09T01:56:20+00:00,806e295a,cc_06,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,easy,easy,72,13,1.2e-05,0.0011,1.2e-05,184.331,1318.1,1502.4,7,llm_judge:mid,False,,,False,0,none,0.00031,277,False,The customer successfully changed their account email address with AirGo support.
+2026-10-09T01:56:26+00:00,806e295a,cc_07,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,224,717,0.000309,0.0272,0.000309,281.613,3635.8,3917.4,10,llm_judge:mid,False,,,False,0,none,0.001013,1211,False,"Here's an analysis of the call transcript:
+
+## Call Transcript Analysis
+
+**Summary:**
+
+The customer contacted EasyLoan to inquire about a personal loan application submitted the previous day. The agent, Rohan, confirmed the application and immediately promised a 10.5% interest rate, stating it was guaranteed for salaried individuals. To proceed with verification, Rohan requested the customer's full 16-digit card number and expiry date, assuring the customer of its safety. The customer expressed some hesitation but ultimately began to provide the card number. Rohan then concluded the call by stating the customer would hear back in two days.
+
+**Compliance Problems:**
+
+1.  **Never promise a specific interest rate before credit check:**
+    *   **Problem:** Rohan explicitly stated, ""Don't worry, you'll definitely get it at 10.5%, that's guaranteed for salaried people."" This is a direct violation of the rule. Interest rates are typically determined after a credit check and assessment of the applicant's financial profile. Promising a specific rate upfront is misleading and can lead to customer dissatisfaction if the actual rate offered is higher.
+
+2.  **Never ask for the full card number on a call:**
+    *   **Problem:** Rohan asked for the customer's ""full 16-digit card number and expiry."" This is a significant security and compliance risk. Collecting full card numbers over the phone is generally prohibited due to the high risk of data breaches and fraudulent activity. Sensitive financial information like full card numbers should be handled through secure, encrypted channels, not over a standard phone call.
+
+3.  **Always read the recorded-call disclosure:**
+    *   **Problem:** The transcript does not show Rohan reading any recorded-call disclosure at the beginning of the conversation. This is a standard practice for many companies to inform customers that the call is being recorded, which is often a legal requirement.
+
+**Escalation Decision:**
+
+**Yes, this call should be escalated to a supervisor.**
+
+**Justification:**
+
+This call presents **multiple, serious compliance violations** that warrant immediate attention and intervention from a supervisor.
+
+*   **High-Risk Security Breach:** The request for the full card number is a critical security lapse. If the customer had provided the full number, it would have exposed them to significant risk of fraud and put the company in a very precarious legal and reputational position. This is not a minor oversight; it's a direct contravention of a fundamental security protocol.
+*   **Misleading Customer:** Promising a guaranteed interest rate before a credit check is deceptive. This can lead to a breach of trust and customer dissatisfaction when the actual offer is different.
+*   **Failure to Follow Basic Procedure:** The absence of a recorded-call disclosure indicates a lack of adherence to fundamental call handling procedures, which could have broader implications for training and quality control.
+
+A supervisor needs to intervene to:
+
+*   **Address the immediate security risk:** Ensure the customer's card information is not compromised and take steps to mitigate any potential damage.
+*   **Reinforce company policy:** Directly address Rohan's violations of the interest rate promise and the card number request.
+*   **Provide immediate retraining:** Rohan clearly needs significant retraining on compliance, security protocols, and customer interaction best practices.
+*   **Investigate further:** Determine if this is an isolated incident or a pattern of behavior.
+
+The severity of the security breach alone makes escalation a necessity."
+2026-10-09T01:56:29+00:00,806e295a,cc_08,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,medium,medium,128,92,5e-05,0.0044,5e-05,191.796,1420.8,1612.6,9,llm_judge:mid,False,,,False,0,none,0.00044,430,False,"Here's the summary of the call in English:
+
+**Problem:** The customer was charged a ₹60 cancellation fee for a ride that was canceled by the driver.
+
+**Action:** The agent verified the cancellation was on the driver's side and that the charge was applied incorrectly. The agent initiated a ₹60 refund.
+
+**Follow-up:** The refund is expected to be credited to the customer's wallet within 3 days."
+2026-10-09T01:56:32+00:00,806e295a,de_01,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,medium,medium,175,102,5.8e-05,0.0051,5.8e-05,215.649,1130.5,1346.1,10,llm_judge:mid,False,,,False,0,none,0.000446,507,False,"```json
+{
+  ""invoice_number"": ""INV-2026-0457"",
+  ""invoice_date"": ""12-Sep-2026"",
+  ""vendor"": ""Meridian Office Supplies Pvt Ltd, Pune"",
+  ""total_amount"": ""18,998"",
+  ""currency"": ""₹"",
+  ""due_date"": ""12-Oct-2026""
+}
+```"
+2026-10-09T01:56:36+00:00,806e295a,de_02,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,110,72,4e-05,0.0035,4e-05,199.132,1175.3,1374.4,10,llm_judge:mid,False,,,False,0,none,0.000377,403,False,"```json
+{
+  ""dukaan_naam"": ""श्री बालाजी किराना स्टोर"",
+  ""tareekh"": ""03/10/2026"",
+  ""kul_rashi"": ""725"",
+  ""bhugtan_tarika"": ""UPI (PhonePe)""
+}
+```"
+2026-10-09T01:56:42+00:00,806e295a,de_03,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,200,942,0.000397,0.0349,0.000397,282.307,3171.9,3454.2,10,llm_judge:mid,False,,,False,0,none,0.001638,1652,False,"Here's the breakdown of the payment terms and the calculation:
+
+## JSON Extraction of Payment Terms
+
+```json
+{
+  ""fixed_fee"": {
+    ""amount"": 240000,
+    ""currency"": ""INR"",
+    ""description"": ""Rupees two lakh forty thousand""
+  },
+  ""taxes"": {
+    ""type"": ""GST"",
+    ""rate_percent"": 18
+  },
+  ""invoicing"": {
+    ""invoice_date"": ""2026-10-01"",
+    ""payment_terms_days"": 30
+  },
+  ""late_payment"": {
+    ""interest_rate_percent_per_annum"": 18,
+    ""interest_calculation_basis"": ""simple"",
+    ""interest_accrual_period"": ""daily"",
+    ""interest_applied_to"": ""total invoiced amount (including GST)""
+  }
+}
+```
+
+## Calculation of Total Amount Payable on 20-Nov-2026
+
+**1. Determine the Due Date:**
+
+*   Invoice Date: 01-Oct-2026
+*   Payment Terms: 30 days
+*   Due Date: 01-Oct-2026 + 30 days = 31-Oct-2026
+
+**2. Calculate the Base Fee (Exclusive of GST):**
+
+*   Fixed Fee: ₹2,40,000
+
+**3. Calculate GST:**
+
+*   GST Rate: 18%
+*   GST Amount: ₹2,40,000 * 18% = ₹43,200
+
+**4. Calculate the Total Invoiced Amount (Including GST):**
+
+*   Total Invoiced Amount: Fixed Fee + GST Amount
+*   Total Invoiced Amount: ₹2,40,000 + ₹43,200 = ₹2,83,200
+
+**5. Calculate the Number of Days Late:**
+
+*   Payment Date: 20-Nov-2026
+*   Due Date: 31-Oct-2026
+*   Days in October after due date: 31 - 31 = 0 days
+*   Days in November until payment: 20 days
+*   Total Days Late: 0 + 20 = 20 days
+
+**6. Calculate the Daily Interest Rate:**
+
+*   Annual Interest Rate: 18%
+*   Daily Interest Rate: 18% / 365 days (assuming a non-leap year for simplicity, as not specified)
+*   Daily Interest Rate: 0.18 / 365 ≈ 0.00049315
+
+**7. Calculate the Late Payment Interest:**
+
+*   Interest Calculation Basis: Simple interest on the total invoiced amount (including GST)
+*   Late Payment Interest: Total Invoiced Amount * Daily Interest Rate * Number of Days Late
+*   Late Payment Interest: ₹2,83,200 * (0.18 / 365) * 20
+*   Late Payment Interest: ₹2,83,200 * 0.00049315 * 20
+*   Late Payment Interest ≈ ₹2,791.84
+
+**8. Calculate the Total Amount Payable:**
+
+*   Total Amount Payable: Total Invoiced Amount + Late Payment Interest
+*   Total Amount Payable: ₹2,83,200 + ₹2,791.84
+*   Total Amount Payable ≈ **₹2,85,991.84**
+
+**Summary of Calculation Steps:**
+
+1.  **Due Date Calculation:** Invoice date + payment terms.
+2.  **GST Calculation:** Fixed fee * GST rate.
+3.  **Total Invoiced Amount Calculation:** Fixed fee + GST amount.
+4.  **Days Late Calculation:** Payment date - due date.
+5.  **Daily Interest Rate Calculation:** Annual interest rate / 365.
+6.  **Late Payment Interest Calculation:** Total invoiced amount * daily interest rate * days late.
+7.  **Total Amount Payable Calculation:** Total invoiced amount + late payment interest."
+2026-10-09T01:56:44+00:00,806e295a,de_04,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,medium,easy,67,45,2.5e-05,0.0022,2.5e-05,174.266,1025.4,1199.7,10,llm_judge:mid,False,,,False,0,none,0.000311,307,False,"```json
+{
+  ""phone"": ""+91 98491 22310"",
+  ""email"": ""priya.r@northwind.example""
+}
+```"
+2026-10-09T01:56:48+00:00,806e295a,de_05,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,medium,medium,157,250,0.000116,0.0102,0.000116,235.886,1258.7,1494.6,10,llm_judge:mid,False,,,False,0,none,0.000569,627,False,"```json
+{
+  ""line_items"": [
+    {
+      ""item"": ""LED tube light 20W"",
+      ""quantity"": 40,
+      ""unit_price"": 210,
+      ""line_total"": 8400
+    },
+    {
+      ""item"": ""MCB 32A single pole"",
+      ""quantity"": 12,
+      ""unit_price"": 385,
+      ""line_total"": 4620
+    },
+    {
+      ""item"": ""Copper wire 1.5 sq mm (90 m roll)"",
+      ""quantity"": 6,
+      ""unit_price"": 1450,
+      ""line_total"": 8700
+    },
+    {
+      ""item"": ""Junction box 4x4"",
+      ""quantity"": 25,
+      ""unit_price"": 48,
+      ""line_total"": 1200
+    }
+  ],
+  ""grand_total"": 22920
+}
+```"
+2026-10-09T01:56:55+00:00,806e295a,de_06,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,181,1111,0.000463,0.0407,0.000463,260.007,4141.1,4401.1,5,llm_judge:mid,False,,,False,0,none,0.001433,1675,False,"Here's the JSON extraction and analysis of the clauses:
+
+## JSON Extraction
+
+```json
+[
+  {
+    ""clause_id"": ""7.1"",
+    ""topic"": ""Termination"",
+    ""text"": ""Either party may terminate this Agreement for convenience with 60 days' written notice.""
+  },
+  {
+    ""clause_id"": ""7.2"",
+    ""topic"": ""Termination"",
+    ""text"": ""The Customer may terminate immediately upon a material breach by the Vendor that is not cured within 15 days of notice.""
+  },
+  {
+    ""clause_id"": ""7.1"",
+    ""topic"": ""Notice-Period"",
+    ""text"": ""Either party may terminate this Agreement for convenience with 60 days' written notice.""
+  },
+  {
+    ""clause_id"": ""7.2"",
+    ""topic"": ""Notice-Period"",
+    ""text"": ""The Customer may terminate immediately upon a material breach by the Vendor that is not cured within 15 days of notice.""
+  },
+  {
+    ""clause_id"": ""9.1"",
+    ""topic"": ""Liability"",
+    ""text"": ""The Vendor's aggregate liability under this Agreement shall not exceed the fees paid in the 12 months preceding the claim.""
+  },
+  {
+    ""clause_id"": ""9.2"",
+    ""topic"": ""Liability"",
+    ""text"": ""Notwithstanding clause 9.1, the Vendor shall be liable for all losses, without limit, arising from any breach of its data-protection obligations.""
+  },
+  {
+    ""clause_id"": ""12.4"",
+    ""topic"": ""Liability"",
+    ""text"": ""The Vendor shall not be liable for any indirect or consequential loss, including loss of data, under any circumstances.""
+  }
+]
+```
+
+## Contradiction Analysis and Legal Implications for the Vendor
+
+**Contradictory Clauses:**
+
+The primary contradiction lies between **Clause 9.1** and **Clause 9.2**.
+
+*   **Clause 9.1** attempts to cap the Vendor's aggregate liability to the fees paid in the preceding 12 months.
+*   **Clause 9.2** explicitly overrides Clause 9.1 for breaches of data-protection obligations, stating the Vendor shall be liable for *all* losses, without limit, in such cases.
+
+**Legal Implication for the Vendor:**
+
+The contradiction between Clause 9.1 and Clause 9.2 creates significant legal uncertainty and potential exposure for the Vendor. Here's a breakdown of the implications:
+
+1.  **Unlimited Liability for Data Breaches:** The most direct implication is that the Vendor's liability for any breach of its data-protection obligations is effectively unlimited. This means that if the Vendor fails to protect customer data adequately, and this failure results in losses, the Vendor could be responsible for the full extent of those losses, regardless of the fees paid. This could include costs associated with data recovery, regulatory fines, legal fees, compensation to affected individuals, and reputational damage.
+
+2.  **Undermining the Liability Cap:** Clause 9.2's ""Notwithstanding clause 9.1"" language is a clear indication that the data protection exception takes precedence. This effectively renders the liability cap in Clause 9.1 meaningless when it comes to data protection breaches. The Vendor cannot rely on the 12-month fee cap to limit its exposure in these specific, and often high-risk, scenarios.
+
+3.  **Increased Risk and Insurance Needs:** The unlimited liability for data breaches significantly increases the Vendor's risk profile. The Vendor should ensure it has adequate insurance coverage (e.g., cyber liability insurance) to mitigate this exposure. The existing insurance might not be sufficient if it's based on the assumption of a capped liability.
+
+4.  **Potential for Disputes and Litigation:** The existence of this contradiction could lead to disputes and litigation. If a data breach occurs, the Customer will undoubtedly point to Clause 9.2 to argue for unlimited liability, while the Vendor might try to argue for the cap in Clause 9.1 (though this would be a weak argument given the explicit override). This could result in costly legal battles.
+
+5.  **Need for Clarification and Amendment:** The most prudent course of action for the Vendor is to seek clarification and amendment of the agreement. The Vendor should negotiate to either:
+    *   **Remove Clause 9.2 entirely:** This would reinstate the liability cap from Clause 9.1 for all breaches.
+    *   **Introduce a specific, reasonable cap for data protection breaches:** This would acknowledge the importance of data protection but still provide some level of predictability and limit the Vendor's exposure. This cap could be a fixed amount or a higher multiple of fees.
+    *   **Clearly define ""data-protection obligations"":** Ambiguity in this definition could also lead to disputes.
+
+**In summary, the contradiction between Clause 9.1 and 9.2 creates a significant and potentially ruinous liability exposure for the Vendor in the event of a data protection breach. The Vendor must address this issue proactively to protect its business.**"
+2026-10-09T01:57:01+00:00,806e295a,de_07,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,medium,medium,109,143,6.8e-05,0.006,6.8e-05,209.899,3113.4,3323.3,10,llm_judge:mid,False,,,False,0,none,0.000433,477,False,"```json
+{
+  ""customer_name"": ""Sunita Verma"",
+  ""items"": [
+    {
+      ""name"": ""atta"",
+      ""qty"": ""2 packet (10 kg wala)""
+    },
+    {
+      ""name"": ""sarson ka tel"",
+      ""qty"": ""1 litre""
+    },
+    {
+      ""name"": ""ande"",
+      ""qty"": ""3 dozen""
+    }
+  ],
+  ""delivery_address"": ""Flat 302, Shanti Apartments, Sector 12, Noida"",
+  ""payment_mode"": ""cash on delivery""
+}
+```"
+2026-10-09T01:57:06+00:00,806e295a,de_08,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,medium,medium,92,103,5e-05,0.0044,5e-05,153.755,3115.0,3268.8,10,llm_judge:mid,False,,,False,0,none,0.000376,405,False,"```json
+{
+  ""title"": ""Senior Data Engineer"",
+  ""company"": ""Lumen Retail Tech"",
+  ""location"": ""Bengaluru (hybrid)"",
+  ""experience_years"": ""5-8"",
+  ""skills"": [
+    ""Python"",
+    ""Spark"",
+    ""Airflow"",
+    ""SQL"",
+    ""Kafka""
+  ],
+  ""salary_range"": ""₹28-38 LPA""
+}
+```"
+2026-10-09T01:57:12+00:00,806e295a,tr_01,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_target,medium,easy,16,500,0.000202,0.0177,0.000202,163.959,2706.0,2870.0,10,llm_judge:mid,False,,,False,0,none,0.000623,707,False,"Here are a few ways to translate ""Your order has been shipped and will arrive on Tuesday"" into Hindi, with slight variations in nuance:
+
+**Most common and direct:**
+
+*   **आपका ऑर्डर भेज दिया गया है और यह मंगलवार को पहुंचेगा।** (Aapka order bhej diya gaya hai aur yeh Mangalwar ko pahunchega.)
+
+**Slightly more formal:**
+
+*   **आपका ऑर्डर शिप कर दिया गया है और यह मंगलवार को प्राप्त होगा।** (Aapka order ship kar diya gaya hai aur yeh Mangalwar ko prapt hoga.)
+    *   ""शिप कर दिया गया है"" (ship kar diya gaya hai) is a common way to say ""has been shipped"" using the English word.
+    *   ""प्राप्त होगा"" (prapt hoga) means ""will be received,"" which is a bit more formal than ""पहुंचेगा"" (pahunchega - will arrive).
+
+**Another common option, using ""भेजा गया है"":**
+
+*   **आपका ऑर्डर भेज दिया गया है और मंगलवार तक आ जाएगा।** (Aapka order bhej diya gaya hai aur Mangalwar tak aa jayega.)
+    *   ""मंगलवार तक आ जाएगा"" (Mangalwar tak aa jayega) means ""will come by Tuesday,"" which is also a very natural way to express it.
+
+**Key vocabulary:**
+
+*   **आपका (Aapka):** Your (formal)
+*   **ऑर्डर (Order):** Order
+*   **भेज दिया गया है (Bhej diya gaya hai):** Has been sent/shipped
+*   **शिप कर दिया गया है (Ship kar diya gaya hai):** Has been shipped (using English word)
+*   **और (Aur):** And
+*   **यह (Yeh):** It/This
+*   **मंगलवार (Mangalwar):** Tuesday
+*   **को (Ko):** On (used with days of the week)
+*   **तक (Tak):** By/Until
+*   **पहुंचेगा (Pahunchega):** Will arrive
+*   **प्राप्त होगा (Prapt hoga):** Will be received
+*   **आ जाएगा (Aa jayega):** Will come
+
+Choose the option that best fits the context and desired level of formality. The first option is generally the most versatile."
+2026-10-09T01:57:17+00:00,806e295a,tr_02,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,57,48,2.5e-05,0.0022,2.5e-05,199.387,2896.1,3095.5,10,llm_judge:mid,False,,,False,0,none,0.000323,315,False,"Here's the English translation of your customer's message:
+
+""The washing machine I bought last week is making a strange noise and sometimes stops mid-cycle. Can a technician come this week? I will be home on Saturday."""
+2026-10-09T01:57:21+00:00,806e295a,tr_03,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,36,293,0.000121,0.0106,0.000121,156.786,1685.2,1842.0,10,llm_judge:mid,False,,,False,0,none,0.00049,529,False,"Here are a few ways to translate the Tamil sentence into English, with slight variations in formality and directness:
+
+**Option 1 (Direct and common):**
+
+> The mobile phone I bought at your shop yesterday is not charging. I have the bill. Can you replace it tomorrow?
+
+**Option 2 (Slightly more formal):**
+
+> The mobile phone I purchased from your store yesterday is not charging. I have the bill with me. Would it be possible for you to exchange it tomorrow?
+
+**Option 3 (More concise):**
+
+> My mobile phone, bought yesterday at your shop, isn't charging. I have the bill. Can I get a replacement tomorrow?
+
+**Key phrases and their translations:**
+
+*   **நான் நேற்று உங்கள் கடையில் வாங்கிய மொபைல் போன்:** The mobile phone I bought at your shop yesterday / The mobile phone I purchased from your store yesterday
+*   **சார்ஜ் ஆகவில்லை:** is not charging / isn't charging
+*   **பில் என்னிடம் உள்ளது:** I have the bill / I have the bill with me
+*   **நாளை மாற்றித் தர முடியுமா?:** Can you replace it tomorrow? / Would it be possible for you to exchange it tomorrow? / Can I get a replacement tomorrow?
+
+All of these translations accurately convey the meaning of the original Tamil sentence. Choose the one that best fits the context of your communication."
+2026-10-09T01:57:28+00:00,806e295a,tr_04,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_target,hard,hard,173,971,0.000406,0.0357,0.000406,269.481,4529.4,4798.9,10,llm_judge:mid,False,,,False,0,none,0.001209,1468,False,"Here is the formal Hindi translation of the legal notice, suitable for a court filing, followed by an explanation of terms:
+
+**Formal Hindi Translation:**
+
+**अधिसूचना**
+
+आपको एतद्द्वारा सूचित किया जाता है कि इस सूचना की प्राप्ति के 15 दिनों के भीतर ₹4,75,000 (चार लाख पचहत्तर हजार रुपये मात्र) की बकाया राशि का भुगतान करें, अन्यथा हमारे मुवक्किल बिना किसी अतिरिक्त सूचना के कानूनी कार्यवाही प्रारंभ करेंगे। हमारे मुवक्किल को 01-अगस्त-2026 से 12% प्रति वर्ष की दर से ब्याज का दावा करने का अधिकार सुरक्षित है। यह सूचना हमारे मुवक्किल के अन्य अधिकारों और उपचारों पर प्रतिकूल प्रभाव डाले बिना जारी की गई है। आपकी चूक से उत्पन्न होने वाली सभी लागतों के लिए आप हमारे मुवक्किल को क्षतिपूर्ति करेंगे। समय सारभूत है।
+
+---
+
+**Explanation of Terms Where Direct Hindi Equivalents Do Not Exist or Require Nuance:**
+
+Here are the terms from the original English notice and how they have been handled in the Hindi translation:
+
+1.  **Indemnify:**
+    *   **Direct Hindi Equivalent:** क्षतिपूर्ति करना (Kshatipurti karna)
+    *   **Explanation:** This is a direct and accurate legal equivalent. ""क्षतिपूर्ति करना"" means to compensate for loss or damage, which perfectly captures the essence of indemnification in a legal context.
+
+2.  **Without Prejudice:**
+    *   **Direct Hindi Equivalent:** प्रतिकूल प्रभाव डाले बिना (Pratikool prabhav dale bina)
+    *   **Explanation:** While there isn't a single, universally recognized direct Hindi legal term that perfectly mirrors ""without prejudice"" in all its nuances, ""प्रतिकूल प्रभाव डाले बिना"" is the most commonly used and legally understood phrase in such contexts. It conveys that the action being taken (issuing the notice) does not waive or compromise any other existing rights or remedies the client may have. It signifies that the notice is issued without prejudice to those other rights.
+
+3.  **Time is of the Essence:**
+    *   **Direct Hindi Equivalent:** समय सारभूत है (Samay saar-bhoot hai)
+    *   **Explanation:** This is a direct and accurate legal translation. ""सारभूत"" (saar-bhoot) means essential, fundamental, or of the utmost importance. Therefore, ""समय सारभूत है"" directly translates to ""time is essential"" or ""time is of the essence,"" emphasizing the critical nature of adhering to the stipulated timeframe.
+
+**Other Considerations:**
+
+*   **""You are hereby called upon to pay""**: Translated as ""आपको एतद्द्वारा सूचित किया जाता है कि... भुगतान करें"" (Aapko etaddwara soochit kiya jaata hai ki... bhugtaan karein). This is a formal and standard legal phrasing in Hindi to convey a demand or call to action.
+*   **""Outstanding sum""**: Translated as ""बकाया राशि"" (bakaya rashi), which is the standard term for an outstanding amount or debt.
+*   **""Legal proceedings""**: Translated as ""कानूनी कार्यवाही"" (kanooni karyavahi), which is the precise legal term for legal proceedings.
+*   **""Further notice""**: Translated as ""अतिरिक्त सूचना"" (atirikta soochana), meaning additional notice.
+*   **""Reserves the right to claim""**: Translated as ""अधिकार सुरक्षित है"" (adhikar surakshit hai), meaning the right is reserved.
+*   **""Interest at 12% per annum""**: Translated as ""12% प्रति वर्ष की दर से ब्याज"" (12% prati varsh ki dar se byaj), which is a direct and accurate translation.
+*   **""From 01-Aug-2026""**: Translated as ""01-अगस्त-2026 से"" (01-Agast-2026 se), maintaining the exact date format.
+*   **""Other rights and remedies""**: Translated as ""अन्य अधिकारों और उपचारों"" (anya adhikaron aur upcharon), which are the standard legal terms.
+*   **""Arising from your default""**: Translated as ""आपकी चूक से उत्पन्न होने वाली"" (aapki chook se utpann hone wali), meaning arising from your default or failure to act.
+*   **""All costs""**: Translated as ""सभी लागतों"" (sabhi lagaton), meaning all costs.
+
+The translation aims to maintain the formality, precision, and legal weight of the original English notice."
+2026-10-09T01:57:35+00:00,806e295a,tr_05,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,medium,medium,68,1099,0.000446,0.0393,0.000446,183.341,4796.0,4979.3,10,llm_judge:mid,False,,,False,0,none,0.001154,1386,False,"Here are a few options for converting the Hinglish complaint into polite, formal English, ranging in directness. Choose the one that best suits your desired tone.
+
+**Option 1 (More direct but still polite):**
+
+Subject: Urgent: Recharge Failure - Account [Your Account Number/Username]
+
+Dear [Company Name] Support Team,
+
+I am writing to report an issue with a recent recharge transaction made through your application. On [Date of Recharge], I attempted to recharge my account for ₹299. While the payment was successfully debited from my account, the recharge itself was not completed.
+
+It has now been two days since this transaction, and I have not yet received a response to my previous inquiries.
+
+I kindly request an immediate resolution to this matter. Please either process the recharge successfully or issue a full refund for the amount of ₹299.
+
+Thank you for your prompt attention to this urgent issue.
+
+Sincerely,
+
+[Your Name]
+[Your Contact Number]
+[Your Email Address]
+
+---
+
+**Option 2 (Slightly softer, emphasizing the inconvenience):**
+
+Subject: Inquiry Regarding Unsuccessful Recharge - Order ID [If you have one] / Account [Your Account Number/Username]
+
+Dear [Company Name] Customer Service,
+
+I hope this email finds you well.
+
+I am writing to seek assistance with a recharge that was attempted via your application on [Date of Recharge]. I initiated a recharge of ₹299, and while the funds were deducted from my payment source, the recharge has not been reflected in my account.
+
+I have been awaiting a resolution for the past two days without any communication.
+
+I would appreciate it if you could investigate this matter urgently and either ensure the recharge is completed or process a refund of ₹299 at your earliest convenience.
+
+Thank you for your understanding and cooperation.
+
+Best regards,
+
+[Your Name]
+[Your Contact Number]
+[Your Email Address]
+
+---
+
+**Option 3 (More formal and detailed, if you have specific details):**
+
+Subject: Formal Complaint: Recharge Transaction Failure - [Your Account Number/Username] - [Date of Recharge]
+
+To the [Company Name] Management/Customer Relations Department,
+
+This correspondence serves as a formal notification regarding a failed recharge transaction conducted through your mobile application.
+
+On [Date of Recharge], I successfully completed a payment of ₹299 for a recharge. However, despite the successful deduction of funds from my [mention payment method, e.g., bank account, credit card], the intended recharge has not been applied to my account.
+
+I have attempted to seek resolution for this issue for the past forty-eight hours, but have received no substantive response.
+
+I formally request that this matter be addressed with the utmost urgency. I require either the immediate and successful completion of the recharge or a full refund of the ₹299 transaction amount. Failure to resolve this issue promptly will leave me with no alternative but to explore further avenues for consumer protection.
+
+I trust that you will give this matter your immediate and serious attention.
+
+Respectfully,
+
+[Your Name]
+[Your Account Number/Username]
+[Your Contact Number]
+[Your Email Address]
+
+---
+
+**Key changes made and why:**
+
+*   **""Yaar""**: Replaced with polite salutations like ""Dear [Company Name] Support Team,"" ""Dear [Company Name] Customer Service,"" or ""To the [Company Name] Management/Customer Relations Department.""
+*   **""aapke app mein""**: Changed to ""through your application"" or ""via your application.""
+*   **""recharge kiya tha 299 ka""**: Formalized to ""attempted to recharge my account for ₹299"" or ""initiated a recharge of ₹299.""
+*   **""paisa kat gaya lekin recharge hua hi nahi""**: Translated to ""the payment was successfully debited from my account, but the recharge itself was not completed"" or ""the funds were deducted from my payment source, but the recharge has not been reflected in my account.""
+*   **""Do din ho gaye, koi reply nahi aa raha""**: Made more formal as ""It has now been two days since this transaction, and I have not yet received a response to my previous inquiries"" or ""I have been awaiting a resolution for the past two days without any communication.""
+*   **""Jaldi refund karo ya recharge karo""**: Changed to polite requests like ""I kindly request an immediate resolution,"" ""Please either process the recharge successfully or issue a full refund,"" or ""I require either the immediate and successful completion of the recharge or a full refund.""
+*   **""warna main consumer court jaunga""**: This is the most direct threat. In formal English, it's often softened to imply further action without explicitly stating it, or stated more formally as in Option 3.
+    *   Option 1 & 2: Implied by the urgency and request for resolution.
+    *   Option 3: ""Failure to resolve this issue promptly will leave me with no alternative but to explore further avenues for consumer protection."" This is a more formal way of saying you'll escalate.
+
+**Remember to replace the bracketed information `[ ]` with your specific details.**"
+2026-10-09T01:57:41+00:00,806e295a,tr_06,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_target,medium,medium,46,870,0.000353,0.031,0.000353,146.472,3209.3,3355.8,10,llm_judge:mid,False,,,False,0,none,0.000948,1156,False,"Here are a few options for translating the SMS into Telugu for customers in Andhra Pradesh, with slight variations in formality and phrasing:
+
+**Option 1 (Slightly more formal and direct):**
+
+> ప్రియమైన వినియోగదారునికి, సెప్టెంబర్ నెలకు సంబంధించిన మీ ₹1,340 విద్యుత్ బిల్లు అక్టోబర్ 15న చెల్లించవలసి ఉంది. ఆలస్య రుసుమును నివారించడానికి యాప్ ద్వారా చెల్లించండి.
+
+**Option 2 (Slightly more conversational):**
+
+> ప్రియమైన కస్టమర్, సెప్టెంబర్ నెలకు మీ ₹1,340 కరెంట్ బిల్లు అక్టోబర్ 15 లోపు కట్టాలి. లేట్ ఫీజు పడకుండా యాప్ లో పే చేయండి.
+
+**Option 3 (Emphasizing ""due date""):**
+
+> ప్రియమైన కస్టమర్, సెప్టెంబర్ నెల మీ ₹1,340 విద్యుత్ బిల్లు గడువు తేదీ అక్టోబర్ 15. ఆలస్య రుసుమును నివారించడానికి యాప్ ద్వారా చెల్లించండి.
+
+**Explanation of Choices and Terms:**
+
+*   **Dear customer:**
+    *   `ప్రియమైన వినియోగదారునికి` (Priyamaina viniyogadaruniki) - More formal, ""To the dear user/customer.""
+    *   `ప్రియమైన కస్టమర్` (Priyamaina customer) - More common and understood, using the English loanword.
+
+*   **your electricity bill of ₹1,340 for September:**
+    *   `సెప్టెంబర్ నెలకు సంబంధించిన మీ ₹1,340 విద్యుత్ బిల్లు` (September nelaku sambandhinchina mee ₹1,340 vidyut billu) - ""Your ₹1,340 electricity bill related to the September month.""
+    *   `సెప్టెంబర్ నెలకు మీ ₹1,340 కరెంట్ బిల్లు` (September nelaku mee ₹1,340 current billu) - ""Your ₹1,340 current bill for the September month."" (`కరెంట్ బిల్లు` is a very common colloquial term for electricity bill).
+
+*   **is due on 15 October:**
+    *   `అక్టోబర్ 15న చెల్లించవలసి ఉంది` (October 15na chellinchavalasi undi) - ""Is to be paid on October 15.""
+    *   `అక్టోబర్ 15 లోపు కట్టాలి` (October 15 lopu kattali) - ""Must be paid by October 15."" (`లోపు` means ""within"" or ""by"").
+    *   `గడువు తేదీ అక్టోబర్ 15` (Gaduvu thedhi October 15) - ""Due date is October 15.""
+
+*   **Pay via the app to avoid a late fee:**
+    *   `ఆలస్య రుసుమును నివారించడానికి యాప్ ద్వారా చెల్లించండి` (Aalasyya rusumunu nivarinchadaaniki app dwara chellinchandi) - ""To avoid the late fee, pay via the app.""
+    *   `లేట్ ఫీజు పడకుండా యాప్ లో పే చేయండి` (Late fee padakunda app lo pay cheyandi) - ""Without the late fee being applied, pay in the app."" (`లేట్ ఫీజు` is commonly understood, and `పడకుండా` means ""without falling/being applied"").
+
+**Which option to choose?**
+
+*   **Option 1** is a good all-rounder, formal enough for official communication.
+*   **Option 2** is more casual and might resonate better with a wider audience due to the use of `కరెంట్ బిల్లు` and `లేట్ ఫీజు`.
+*   **Option 3** clearly highlights the ""due date"" aspect.
+
+All options are grammatically correct and convey the intended message effectively for customers in Andhra Pradesh."
+2026-10-09T01:57:48+00:00,806e295a,tr_07,translation,translation,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_target,medium,hard,114,1052,0.000432,0.038,0.000432,209.718,4696.3,4906.0,10,llm_judge:mid,False,,,False,0,none,0.00122,1458,False,"Here's the Hindi translation and a comparison of the idiom renderings:
+
+**Hindi Translation:**
+
+""उस साल मानसून देर से आया, और धनौरा के किसानों ने आसमान को ऐसे देखा जैसे कोई ऐसे कर्जदार को देखता है जो भुगतान करने का वादा करता रहता है। जब आखिरकार बारिश हुई, तो वह एक साथ हुई, और नदी अपने साथ पुल ले गई। 'खैर,' बूढ़ी केसरी ने अपनी साड़ी निचोड़ते हुए कहा, 'जब बारिश होती है, तो मूसलाधार होती है।'""
+
+**Comparison of Idiom Renderings:**
+
+The idiom in the last sentence is ""when it rains, it pours."" In Hindi, this idiom signifies that when a bad situation occurs, it often comes with other bad things happening simultaneously or in quick succession.
+
+Here are two possible renderings of this idiom in Hindi:
+
+1.  **""जब बारिश होती है, तो मूसलाधार होती है।""** (Jab baarish hoti hai, toh moosladhaar hoti hai.)
+2.  **""जब एक मुसीबत आती है, तो सौ आती हैं।""** (Jab ek museebat aati hai, toh sau aati hain.)
+
+**Step-by-step explanation of the chosen rendering and why it fits the speaker's tone better:**
+
+**Step 1: Analyze the context and the speaker's situation.**
+
+Old Kesari is wringing out her sari, implying she's just experienced the heavy, sudden rain. The preceding sentence states, ""the river took the bridge with it."" This clearly indicates a negative and overwhelming event. The farmers have been anxiously waiting for rain, and when it finally arrived, it was not a gentle, life-giving shower but a destructive deluge.
+
+**Step 2: Evaluate the literal meaning of the idiom.**
+
+""When it rains, it pours"" literally refers to heavy rainfall. However, its idiomatic meaning is about a cascade of misfortunes.
+
+**Step 3: Analyze the first rendering: ""जब बारिश होती है, तो मूसलाधार होती है।""**
+
+*   **Literal meaning:** ""When it rains, it is torrential.""
+*   **Connection to the context:** This rendering directly connects the idiom to the literal event of heavy rain that has just occurred and caused destruction. It acknowledges the intensity of the rain itself.
+*   **Tone:** This rendering has a tone of **resignation and observation of a natural, albeit destructive, phenomenon.** It's a statement of fact about the nature of the rain that has just hit them.
+
+**Step 4: Analyze the second rendering: ""जब एक मुसीबत आती है, तो सौ आती हैं।""**
+
+*   **Literal meaning:** ""When one trouble comes, a hundred come.""
+*   **Connection to the context:** This rendering focuses more on the *consequence* of the rain – the destruction of the bridge and potentially other problems. It emphasizes the idea of multiple misfortunes.
+*   **Tone:** This rendering has a tone of **exaggeration and a sense of being overwhelmed by multiple calamities.** While it captures the idea of multiple bad things happening, it might feel a bit too dramatic or less directly tied to the immediate physical event of the rain.
+
+**Step 5: Compare the tones and choose the best fit.**
+
+Old Kesari's tone, as she wrings out her sari and observes the destruction, is one of **weary acceptance and a matter-of-fact observation of a harsh reality.** She's not necessarily lamenting a hundred different problems, but rather acknowledging the overwhelming nature of the *current* disaster, which is directly linked to the intense rain.
+
+The first rendering, **""जब बारिश होती है, तो मूसलाधार होती है,""** perfectly captures this. It directly references the ""pouring"" rain that has caused the destruction. It's a common way to express that when something bad happens, it happens with great intensity. It reflects the immediate, overwhelming nature of the event without necessarily implying a long list of separate troubles.
+
+The second rendering, while conveying the idea of multiple misfortunes, might be a bit too strong and less directly tied to the immediate cause (the heavy rain). It shifts the focus from the *intensity of the event* to the *quantity of troubles*, which isn't as precisely aligned with Kesari's immediate reaction to the destructive downpour.
+
+**Therefore, I chose the first rendering: ""जब बारिश होती है, तो मूसलाधार होती है।""**
+
+**Why it fits the speaker's tone better:**
+
+This rendering aligns with Kesari's tone of **resigned observation of a powerful, destructive natural event.** She's not necessarily complaining about a multitude of separate problems, but rather acknowledging the overwhelming force of the rain that has brought about significant destruction. The phrase ""मूसलाधार होती है"" (it is torrential) directly reflects the intensity of the rain that has just occurred and caused the bridge to be swept away. It's a more direct and fitting expression of the idiom in this specific context of a sudden, overwhelming downpour leading to disaster."
+2026-10-09T01:57:49+00:00,806e295a,cl_01,classification,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,easy,easy,49,1,5e-06,0.0005,5e-06,172.132,1212.4,1384.5,10,exact_match,False,,,False,0,none,0.0,0,False,negative
+2026-10-09T01:57:50+00:00,806e295a,cl_02,classification,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,hard,easy,67,3,8e-06,0.0007,8e-06,172.492,963.8,1136.3,10,exact_match,False,,,False,0,none,0.0,0,False,order_status
+2026-10-09T01:57:51+00:00,806e295a,cl_03,classification,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,easy,48,1,5e-06,0.0005,5e-06,141.585,819.1,960.7,10,exact_match,False,,,False,0,none,0.0,0,False,billing
+2026-10-09T01:57:54+00:00,806e295a,cl_04,classification,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,228,302,0.000144,0.0126,0.000144,263.858,2167.7,2431.6,0,exact_match,False,,,False,0,none,0.0,0,False,"The complaint describes a situation where the gym made specific promises in its advertising ('24x7 access, all branches') that were not fulfilled. The member paid for a service based on these representations. The discrepancy between the advertised service and the actual service provided constitutes a fault or inadequacy in the service that was paid for. The fine print, while potentially a contractual element, does not negate the initial misleading advertising that induced the purchase. The member is using the gym for personal fitness, confirming they are a consumer.
+
+The core issue is not that the gym itself is physically broken or faulty (defective_goods), nor is it solely a contractual dispute between businesses. The primary problem lies in the gym's failure to deliver the advertised service as promised, which is a deficiency in the service provided. While the advertising was misleading, the direct complaint is about the *service* not matching the advertisement, rather than the advertisement itself being the sole actionable item without a corresponding service failure. However, the misleading advertising is the *cause* of the deficiency in service. Given the definitions, 'deficiency_in_service' best captures the failure to provide what was paid for due to the initial misrepresentation. 'Unfair_trade_practice' focuses on the misleading advertising itself, but the complaint is about the *consequence* of that advertising on the service received. Since the service was paid for and not delivered as advertised, it's a deficiency in service.
+
+Label: deficiency_in_service"
+2026-10-09T01:57:55+00:00,806e295a,cl_05,classification,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,easy,easy,47,1,5e-06,0.0004,5e-06,140.354,766.0,906.4,10,exact_match,False,,,False,0,none,0.0,0,False,Yes
+2026-10-09T01:57:56+00:00,806e295a,cl_06,classification,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,hard,easy,56,3,7e-06,0.0006,7e-06,155.163,895.4,1050.6,10,exact_match,False,,,False,0,none,0.0,0,False,product_quality
+2026-10-09T01:57:59+00:00,806e295a,cl_07,classification,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,214,600,0.000261,0.023,0.000261,268.833,2981.8,3250.6,0,exact_match,False,,,False,0,none,0.0,0,False,"The ticket describes a slow-loading dashboard, which is a performance degradation. The customer also mentions that exports still work and they can use the old UI as a workaround. Additionally, the logo on the login page is stretched, which is a cosmetic issue.
+
+Let's analyze the ticket against the policy:
+
+*   **P1 = production outage affecting all customers OR any confirmed data breach.** The ticket does not describe a production outage affecting all customers, nor is there any mention of a data breach. The issue is slow loading, not a complete outage.
+
+*   **P2 = production degraded for many customers, or a single enterprise customer fully blocked.** The dashboard is loading slowly, indicating production degradation. The customer states ""two other customers reported the same slowness,"" suggesting it's affecting more than just them, potentially ""many customers"" in a broader sense, or at least a significant portion of their user base. However, the existence of a workaround (old UI) and the fact that exports still work means the production is not ""fully blocked"" for this customer. The policy states ""production degraded for many customers, OR a single enterprise customer fully blocked."" The degradation is present, and the mention of other customers suggests it's not isolated.
+
+*   **P3 = a bug with a workaround.** The slow dashboard is a bug, and the customer explicitly states they ""can use the old UI as a workaround."" This fits the P3 definition.
+
+*   **P4 = cosmetic or feature request.** The stretched logo is a cosmetic issue, which would fall under P4.
+
+Now, let's compare the conflicting signals and apply the ""highest"" rule:
+
+The ticket presents signals for P2 (production degraded for potentially many customers) and P3 (bug with a workaround). It also has a P4 signal (cosmetic issue).
+
+The policy states: ""If a ticket matches multiple levels, use the highest.""
+
+Comparing P2 and P3, P2 is a higher priority than P3.
+
+The P2 condition ""production degraded for many customers"" is supported by the mention of ""two other customers reported the same slowness."" While the customer is mid-tier and not explicitly an ""enterprise customer,"" the degradation is present and seems to be impacting more than just one user. The existence of a workaround does not negate the P2 classification if the degradation is significant and widespread enough to be considered ""production degraded for many customers."" The P3 definition is a fallback if it's a bug *with a workaround* and doesn't necessarily imply a broader impact than P2. Given the mention of other customers, the degradation is likely more significant than a simple bug with a workaround that only affects a single user. The cosmetic issue (P4) is clearly the lowest priority and is superseded by P2 and P3.
+
+Therefore, the highest applicable priority level is P2.
+
+Label: P2"
+2026-10-09T01:58:05+00:00,806e295a,de_09,document_extraction,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,1314,1255,0.000633,0.0557,0.000633,352.225,3110.5,3462.7,6,llm_judge:mid,False,,,False,0,none,0.002337,2980,False,"```json
+{
+  ""invoice_number"": ""SIS/2026-27/01187"",
+  ""invoice_date"": ""27-Sep-2026"",
+  ""seller_gstin"": ""27AAECS4471K1ZP"",
+  ""buyer_gstin"": ""27AABCV2290M1Z4"",
+  ""total_taxable_value"": 168524.70,
+  ""total_cgst"": 11609.24,
+  ""total_sgst"": 11609.24,
+  ""grand_total"": 191743.00,
+  ""line_items"": [
+    {
+      ""sno"": 1,
+      ""description"": ""Cotton yarn 40s combed"",
+      ""hsn"": ""5205"",
+      ""qty"": 120,
+      ""rate"": 285.00,
+      ""gst_rate"": ""5%"",
+      ""amount"": 34200.00
+    },
+    {
+      ""sno"": 2,
+      ""description"": ""Polyester blended yarn 30s"",
+      ""hsn"": ""5509"",
+      ""qty"": 80,
+      ""rate"": 198.00,
+      ""gst_rate"": ""5%"",
+      ""amount"": 15840.00
+    },
+    {
+      ""sno"": 3,
+      ""description"": ""Reactive dye - Navy RX"",
+      ""hsn"": ""3204"",
+      ""qty"": 25,
+      ""rate"": 640.00,
+      ""gst_rate"": ""18%"",
+      ""amount"": 16000.00
+    },
+    {
+      ""sno"": 4,
+      ""description"": ""Soda ash (sodium carbonate)"",
+      ""hsn"": ""2836"",
+      ""qty"": 200,
+      ""rate"": 38.00,
+      ""gst_rate"": ""18%"",
+      ""amount"": 7600.00
+    },
+    {
+      ""sno"": 5,
+      ""description"": ""Industrial sewing thread 40/2"",
+      ""hsn"": ""5401"",
+      ""qty"": 300,
+      ""rate"": 42.00,
+      ""gst_rate"": ""12%"",
+      ""amount"": 12600.00
+    },
+    {
+      ""sno"": 6,
+      ""description"": ""Fusible interlining 90 cm"",
+      ""hsn"": ""5903"",
+      ""qty"": 450,
+      ""rate"": 36.50,
+      ""gst_rate"": ""18%"",
+      ""amount"": 16425.00
+    },
+    {
+      ""sno"": 7,
+      ""description"": ""Nylon zipper 18 cm"",
+      ""hsn"": ""9607"",
+      ""qty"": 2000,
+      ""rate"": 6.20,
+      ""gst_rate"": ""18%"",
+      ""amount"": 12400.00
+    },
+    {
+      ""sno"": 8,
+      ""description"": ""Plastic buttons 18L"",
+      ""hsn"": ""9606"",
+      ""qty"": 10000,
+      ""rate"": 0.85,
+      ""gst_rate"": ""18%"",
+      ""amount"": 8500.00
+    },
+    {
+      ""sno"": 9,
+      ""description"": ""Woven care labels"",
+      ""hsn"": ""5807"",
+      ""qty"": 5000,
+      ""rate"": 1.40,
+      ""gst_rate"": ""18%"",
+      ""amount"": 7000.00
+    },
+    {
+      ""sno"": 10,
+      ""description"": ""Corrugated cartons 24x18x12"",
+      ""hsn"": ""4819"",
+      ""qty"": 400,
+      ""rate"": 48.00,
+      ""gst_rate"": ""18%"",
+      ""amount"": 19600.00
+    },
+    {
+      ""sno"": 11,
+      ""description"": ""Machine oil ISO VG 22, 20 L"",
+      ""hsn"": ""2710"",
+      ""qty"": 6,
+      ""rate"": 1850.00,
+      ""gst_rate"": ""18%"",
+      ""amount"": 11100.00
+    },
+    {
+      ""sno"": 12,
+      ""description"": ""Needles DBx1 #14 (10/pack)"",
+      ""hsn"": ""8452"",
+      ""qty"": 50,
+      ""rate"": 165.00,
+      ""gst_rate"": ""18%"",
+      ""amount"": 8250.00
+    }
+  ],
+  ""arithmetic_issues"": []
+}
+```"
+2026-10-09T01:58:11+00:00,806e295a,de_10,document_extraction,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,medium,hard,2799,1164,0.000746,0.0656,0.000745,323.842,3407.9,3731.7,5,llm_judge:mid,False,,,False,0,none,0.003709,4706,False,"```json
+{
+  ""withdrawals_greater_than_10000"": [
+    {
+      ""date"": ""03-09-2026"",
+      ""narration"": ""ATM WDL/Koramangala/5699252753"",
+      ""amount"": 20000.00
+    },
+    {
+      ""date"": ""03-09-2026"",
+      ""narration"": ""SI/DR/Mutual Fund SIP Axis/5070378921"",
+      ""amount"": 15000.00
+    },
+    {
+      ""date"": ""06-09-2026"",
+      ""narration"": ""NEFT/DR/Trident Furniture/6847951704"",
+      ""amount"": 46800.00
+    },
+    {
+      ""date"": ""10-09-2026"",
+      ""narration"": ""NEFT/DR/Trident Furniture/8166808862"",
+      ""amount"": 46800.00
+    },
+    {
+      ""date"": ""12-09-2026"",
+      ""narration"": ""POS/Croma Indiranagar/1346094055"",
+      ""amount"": 23499.00
+    },
+    {
+      ""date"": ""12-09-2026"",
+      ""narration"": ""NEFT/DR/Pinnacle Property Mgmt RENT/5346777758"",
+      ""amount"": 32000.00
+    },
+    {
+      ""date"": ""12-09-2026"",
+      ""narration"": ""NEFT/DR/LIC PREMIUM/4177351297"",
+      ""amount"": 14230.00
+    },
+    {
+      ""date"": ""13-09-2026"",
+      ""narration"": ""NEFT/DR/ICICI HOME LOAN EMI/1225810525"",
+      ""amount"": 27850.00
+    },
+    {
+      ""date"": ""17-09-2026"",
+      ""narration"": ""NEFT/DR/Pinnacle Property Mgmt RENT/4662012810"",
+      ""amount"": 32000.00
+    },
+    {
+      ""date"": ""17-09-2026"",
+      ""narration"": ""POS/Croma Indiranagar/6495060795"",
+      ""amount"": 23499.00
+    },
+    {
+      ""date"": ""18-09-2026"",
+      ""narration"": ""NEFT/DR/LIC PREMIUM/2566099205"",
+      ""amount"": 27850.00
+    },
+    {
+      ""date"": ""18-09-2026"",
+      ""narration"": ""POS/Croma Indiranagar/4609643115"",
+      ""amount"": 23499.00
+    },
+    {
+      ""date"": ""22-09-2026"",
+      ""narration"": ""ACH/DR/Bajaj Finserv EMI/1906419964"",
+      ""amount"": 14230.00
+    },
+    {
+      ""date"": ""24-09-2026"",
+      ""narration"": ""NEFT/DR/ICICI HOME LOAN EMI/7475582290"",
+      ""amount"": 27850.00
+    },
+    {
+      ""date"": ""28-09-2026"",
+      ""narration"": ""NEFT/DR/ICICI HOME LOAN EMI/3092769114"",
+      ""amount"": 27850.00
+    },
+    {
+      ""date"": ""29-09-2026"",
+      ""narration"": ""NEFT/DR/Trident Furniture/5372628807"",
+      ""amount"": 46800.00
+    }
+  ],
+  ""sum_of_withdrawals_greater_than_10000"": 435577.00,
+  ""opening_balance"": 184320.55,
+  ""closing_balance"": 44357.57,
+  ""salary_credits_count"": 2,
+  ""total_salary_credited"": 285000.00
+}
+```"
+2026-10-09T01:58:16+00:00,806e295a,de_11,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,1083,254,0.00021,0.0185,0.00021,365.163,1378.5,1743.7,10,llm_judge:mid,False,,,False,0,none,0.001368,1712,False,"```json
+{
+  ""policy_number"": ""BSG/MTR/2026/0088213"",
+  ""insured_name"": ""Priyanka Kulkarni"",
+  ""registration_number"": ""MH 12 RT 4471"",
+  ""make_model"": ""Hyundai Creta SX 1.5 Diesel"",
+  ""idv"": 985000,
+  ""period_from"": ""14-Oct-2026"",
+  ""period_to"": ""13-Oct-2027"",
+  ""ncb_percent"": 35,
+  ""total_od_premium"": 19854,
+  ""total_liability_premium"": 3791,
+  ""gst"": 4256,
+  ""total_premium_payable"": 27901,
+  ""nominee_name"": ""Rohan Kulkarni"",
+  ""nominee_relation"": ""Husband"",
+  ""hypothecated_to"": ""HDFC Bank Ltd, Kothrud branch""
+}
+```"
+2026-10-09T01:58:28+00:00,806e295a,de_12,document_extraction,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,hard,hard,1159,4096,0.001754,0.1544,0.001754,292.855,8634.4,8927.3,1,llm_judge:mid,False,,,False,0,none,0.001331,1666,False,"Here's a breakdown of the home loan sanction letter:
+
+## Key Commercial Terms
+
+| Term                     | Value"
+2026-10-09T01:58:33+00:00,806e295a,de_13,document_extraction,document_extraction,quality,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,778,299,0.000197,0.0174,0.000197,333.452,1617.1,1950.6,10,llm_judge:mid,False,,,False,0,none,0.001177,1465,False,"```json
+{
+  ""complainant_name"": ""Sunita Ramesh Jadhav"",
+  ""account_number"": ""41200100556712"",
+  ""customer_id"": ""77310562"",
+  ""disputed_amount"": 24990,
+  ""transaction_date"": ""2026-09-28"",
+  ""merchant_narration"": ""POS/FLIPKART INTERNET/0928"",
+  ""card_last4"": ""3391"",
+  ""phone_complaint_ref"": ""CC2026092811207"",
+  ""date_dispute_form_submitted"": ""2026-09-29"",
+  ""regulation_cited"": ""RBI Circular dated July 6, 2017"",
+  ""remedies_requested"": [
+    ""Full refund of ₹24,990 to be credited to the account immediately"",
+    ""Interest at savings account rate from September 28 to the date of refund"",
+    ""Written information about the dispute status to be provided via email""
+  ],
+  ""escalation_threat"": ""Complaint to Banking Ombudsman"",
+  ""deadline_given_days"": 7
+}
+```"
+2026-10-09T01:58:38+00:00,806e295a,cc_09,call_centre_summary,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,hard,hard,1253,616,0.000372,0.0327,0.000372,245.896,2703.5,2949.4,10,llm_judge:mid,False,,,False,0,none,0.00181,2273,False,"Here's the call summary for the collections CRM:
+
+**Call ID:** 7731-2026-1003
+**Duration:** 09:42
+
+**Issue:**
+*   September EMI of ₹11,350 for personal loan account ending 4482 is overdue.
+*   Due date was September 5th, current date is October 3rd.
+*   Late payment charge of ₹590 has been applied.
+
+**Customer's Reason:**
+*   Customer's garment business in Dharavi is facing a payment delay from a client, with ₹2 Lakhs currently stuck.
+*   The client has promised payment by October 10th, but a previous promise for September 20th was not met.
+
+**Promise to Pay:**
+*   **₹3,000:** Today, October 3rd (via Google Pay).
+*   **₹8,940:** By October 12th (this includes the remaining September EMI of ₹8,350 + ₹590 late charge).
+*   **₹11,350:** October EMI, to be paid along with the September balance on October 12th.
+*   **Total on October 12th:** ₹20,290 (September balance + October EMI).
+
+**Agent Commitments:**
+*   Submit a request for waiver of the ₹590 late payment charge.
+*   Follow up with the customer within 2 days regarding the late fee waiver decision.
+*   Hold the NACH presentation for the October EMI until October 12th.
+*   Send an SMS summary of the agreed-upon payment plan and commitments.
+*   Include a payment link in the SMS or advise the customer to use the app for payments.
+
+**Risks/Flags for Supervisor:**
+*   **Customer's Payment History:** While the customer states a good repayment history (24 EMIs on time), the current delay is significant.
+*   **Client Payment Dependency:** The customer's ability to pay is heavily reliant on a delayed client payment, which has a history of not meeting promised dates.
+*   **Potential for Further Delays:** The customer's promise to pay the full outstanding amount (September + October EMI) on October 12th is a large sum and still depends on the client's payment. A missed payment on October 12th could lead to another ₹590 late fee and CIBIL reporting.
+*   **Late Fee Waiver Request:** The customer is requesting a waiver for the first-time late fee, which is subject to branch manager approval.
+*   **NACH Hold:** Holding the NACH presentation for the October EMI until October 12th is a concession, but it increases the risk of a missed payment if the customer's cash flow issues persist."
+2026-10-09T01:58:49+00:00,806e295a,cc_10,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,english,medium,medium,1457,4096,0.001784,0.157,0.001784,264.411,9110.6,9375.0,2,llm_judge:mid,False,,,False,0,none,0.001555,1949,False,"Here's a summary of the broadband support call for the CRM:
+
+**(a) Two-line overview:**
+The customer reported slow broadband speeds due to a physical line issue requiring a technician visit. They also had a duplicate bill charge which has been resolved by adjusting the next month's bill, and a planned move to a new address has been noted.
+
+**(b) Table of action items:**
+
+| Issue                       | Action"
+2026-10-09T01:58:55+00:00,806e295a,cc_11,call_centre_summary,call_centre_summary,cost,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,indic_script,medium,medium,1004,790,0.000416,0.0366,0.000416,461.757,3277.5,3739.3,10,llm_judge:mid,False,,,False,0,none,0.001733,2167,False,"## CRM सारांश: UPI ग्राहक सेवा कॉल
+
+**कॉल आईडी:** UPI-20260930-2219
+**अवधि:** 07:55
+
+---
+
+**(1) समस्या:**
+
+ग्राहक, श्री विनोद पाटिल, ने कल रात (29 सितंबर) ""Patil Kirana Store"" को ₹2,350 का UPI भुगतान किया था। राशि उनके बैंक खाते से कट गई है, लेकिन दुकानदार को प्राप्त नहीं हुई है। UPI रेफ़रेंस नंबर 627 299 114 508 है और ट्रांज़ैक्शन का स्टेटस ""pending"" दिखा रहा है। ग्राहक ने पहले ही दुकानदार को नकद में राशि का भुगतान कर दिया है, जिससे दोहरे भुगतान की चिंता है।
+
+**(2) एजेंट ने क्या बताया और क्या किया:**
+
+*   एजेंट अंजलि ने ग्राहक का रजिस्टर्ड मोबाइल नंबर (98230 44517) सत्यापित किया और ग्राहक का नाम ""श्री विनोद पाटिल"" बताया।
+*   एजेंट ने ट्रांज़ैक्शन विवरण (दिनांक, समय, राशि, प्राप्तकर्ता, UPI रेफ़रेंस नंबर और स्टेटस) की पुष्टि की।
+*   एजेंट ने समझाया कि ""pending"" का मतलब है कि राशि ग्राहक के खाते से डेबिट हो गई है लेकिन दुकानदार के बैंक से कन्फ़र्मेशन नहीं आया है।
+*   एजेंट ने NPCI नियमों के अनुसार बताया कि या तो राशि दुकानदार को मिल जाएगी या एक कार्यदिवस (30 सितंबर रात 12 बजे तक) में ग्राहक के खाते में वापस आ जाएगी।
+*   एजेंट ने ग्राहक को आश्वासन दिया कि यदि राशि दुकानदार को मिल जाती है, तो वे उसे लौटा सकते हैं, लेकिन यह उनके नियंत्रण में नहीं है।
+*   एजेंट ने ग्राहक की ओर से एक शिकायत दर्ज की और शिकायत संख्या **PF-CMP-20260930-10882** प्रदान की।
+*   एजेंट ने ग्राहक को सलाह दी कि वे अपना पेफ़ास्ट ऐप प्ले स्टोर से अपडेट कर लें (वर्तमान वर्ज़न 4.2 है), क्योंकि नए वर्ज़न में पेंडिंग ट्रांज़ैक्शन का स्टेटस अपने आप दिखता है।
+*   एजेंट ने ग्राहक के दूसरे प्रश्न का उत्तर दिया कि कॉलेज फ़ीस के लिए ₹48,000 का भुगतान संभव है, क्योंकि बैंक की UPI लिमिट ₹1 लाख प्रतिदिन है और शिक्षा संस्थानों के लिए लिमिट ₹5 लाख है।
+*   एजेंट ने ग्राहक को आश्वस्त किया कि इस पेंडिंग ट्रांज़ैक्शन से कोई ब्लॉक नहीं लगेगा।
+
+**(3) ग्राहक को आगे क्या करना है:**
+
+*   ग्राहक को 30 सितंबर, रात 12 बजे तक इंतजार करना होगा।
+*   यदि राशि उनके खाते में वापस नहीं आती है, तो उन्हें या तो कल सुबह पेफ़ास्ट ग्राहक सेवा को फिर से कॉल करना होगा, या पेफ़ास्ट ऐप में ""Transaction history"" में जाकर उस ट्रांज़ैक्शन पर ""Raise a dispute"" पर क्लिक करना होगा।
+*   ग्राहक को अपना पेफ़ास्ट ऐप प्ले स्टोर से अपडेट करना होगा।
+
+**(4) ग्राहक का दूसरा प्रश्न और उसका उत्तर:**
+
+*   **प्रश्न:** ग्राहक की बेटी के कॉलेज फ़ीस का ₹48,000 का पेमेंट 15 तारीख को है। क्या इस ऐप से एक दिन में इतना भुगतान किया जा सकता है?
+*   **उत्तर:** हाँ, यह संभव है। आपके बैंक की UPI लिमिट एक लाख प्रतिदिन है, और एक ट्रांज़ैक्शन में भी एक लाख तक की अनुमति है। शिक्षा संस्थानों के लिए यह लिमिट पाँच लाख तक है, इसलिए ₹48,000 का भुगतान कोई समस्या नहीं होगी। बस कॉलेज की UPI आईडी या QR कोड सही से जाँच लें।"
+2026-10-09T01:59:00+00:00,806e295a,cc_12,call_centre_summary,classification,speed,always_cheapest,deberta,cheap,baseline: always cheapest,google/gemini-2.5-flash-lite,romanised_indic,hard,hard,1410,667,0.000408,0.0359,0.000408,268.322,2960.9,3229.2,10,llm_judge:mid,False,,,False,0,none,0.002033,2558,False,"**CRM Note**
+
+**Policy Number:** ASH/2025/11/30291
+**Claim Number:** CLM-2026-09-77410
+
+**Customer:** Ganesh Iyer
+**Insured:** Ganesh Iyer, Spouse, One Child
+**Sum Insured:** ₹5,00,000
+
+**Claimed Amount:** ₹1,84,600
+**Reason for Repudiation:** Non-disclosure of pre-existing disease. Discharge summary from Lakshmi Multispeciality, Chennai, indicated ""known case of gallstones since 2023"".
+
+**Customer Dispute:**
+*   Customer disputes the diagnosis date of gallstones, stating it was only discovered in August 2026 via ultrasound.
+*   Customer questions why the pre-authorization was approved if the condition was pre-existing.
+
+**Documents Required from Customer:**
+1.  Corrected discharge summary from Lakshmi Multispeciality, Chennai, or a letter from the treating doctor (Dr. Subramanian) clarifying the date of first diagnosis of gallstones.
+2.  Ultrasound report from August 2026 confirming the first diagnosis of gallstones.
+3.  Any prior ultrasound or consultation reports for gallstones prior to 2025, if available.
+
+**Where to Send Documents:** claims@arogyashield.example (with Claim Number CLM-2026-09-77410 in the subject line).
+
+**Agent References:**
+*   Reconsideration Request Raised: RC-77410-A
+
+**Expected Payout if Reinstated:** Approximately ₹1,45,000 - ₹1,50,000.
+**Reason for Lower Payout than Billed:** The billed amount of ₹1,84,600 includes room charges at ₹7,500 per day (deluxe room). The policy allows for a single private AC room up to ₹5,000 per day. Therefore, a proportionate deduction of approximately 33% on room-linked charges would apply, leading to a lower payable amount.
+
+**Escalation Path:**
+1.  Grievance Redressal Officer (email address available in policy document).
+2.  IRDAI's Bima Bharosa portal.
+3.  Insurance Ombudsman.
+
+**Process Gaps to Report Internally:**
+*   **Pre-authorization Approval vs. Final Claim Assessment:** The discrepancy between the pre-authorization approval and the final claim repudiation based on medical review warrants investigation. While pre-auth is provisional, the approval of ₹1,20,000 for a condition later deemed pre-existing needs review.
+*   **Hospital Network Communication:** Feedback to be raised against Lakshmi Multispeciality, Chennai, regarding their network desk's awareness of room category entitlements as per policy terms.
+*   **Clarity on Pre-existing Disease Declaration:** While the policy terms are clear, there's a recurring customer concern about how pre-existing conditions are identified and communicated during the pre-authorization stage versus the final claim settlement."
+2026-10-09T01:59:07+00:00,806e295a,cc_01,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,medium,208,122,0.003272,0.2879,0.003272,193.953,3721.3,3915.3,10,llm_judge:mid,False,,,False,0,none,0.000424,426,False,"- **Issue:** The customer's debit card was declined twice at a petrol pump this morning, despite having sufficient balance.
+- **Action taken:** The agent found that the fraud system had temporarily blocked the card after two quick transactions, and removed the block.
+- **Next step:** The card should work again within 10 minutes, and the customer will receive an SMS confirmation."
+2026-10-09T01:59:15+00:00,806e295a,cc_02,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,medium,medium,255,157,0.00416,0.3661,0.00416,236.068,4440.9,4677.0,10,llm_judge:mid,False,,,False,0,none,0.000467,471,False,"**Call Summary – FlipMart Support**
+
+**Issue:** The customer reported that order **FM88213** had shown ""out for delivery"" for 4 days but had not arrived.
+
+**Resolution:** The agent found that the delivery partner had entered the wrong pincode. The agent re-dispatched the order, with delivery expected by tomorrow.
+
+**Follow-up:** If the order does not arrive by tomorrow evening, the customer should call back, and a full refund will be processed."
+2026-10-09T01:59:21+00:00,806e295a,cc_03,call_centre_summary,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,easy,medium,295,171,0.0046,0.4048,0.0046,236.5,4292.2,4528.7,10,llm_judge:mid,False,,,False,0,none,0.000412,425,False,"ग्राहक ने शिकायत की कि उनके घर में कल रात से बिजली नहीं आ रही है, जबकि आस-पास के घरों में बिजली है। एजेंट ने कंज्यूमर नंबर (55-2310-98) से जाँच करने पर मीटर में फॉल्ट पाया और आज शाम 5 बजे टेक्नीशियन की विज़िट बुक कर दी। शिकायत संख्या 7781 दर्ज की गई।"
+2026-10-09T01:59:37+00:00,806e295a,cc_04,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,473,978,0.021452,1.8878,0.021452,258.33,11936.8,12195.1,10,llm_judge:mid,False,,,False,0,none,0.001021,1249,False,"# SkyNet Broadband Call: Analysis and Refund Calculation
+
+## (a) Call Summary
+
+The customer, who pays ₹1,200/month for the 200 Mbps plan, had a total internet outage from **Monday 9 am to Thursday 3 pm**. A technician visited on Tuesday and found the fibre cut at SkyNet's street junction box, not inside the flat. The customer was still charged a ₹350 technician fee.
+
+The agent confirmed the ticket shows a fibre cut at the street junction box, repaired Thursday 3 pm. The agent said the fee was auto-applied because the visit was booked as ""customer premises."" The agent agreed to credit the next bill but did not state an amount.
+
+The customer said this is the **second outage this year** and asked that it not happen again. The agent agreed to raise a request to inspect the junction box.
+
+## (b) Root Cause
+
+There are two separate problems:
+
+1. **The outage:** a fibre cut at the provider's street junction box. This is entirely on SkyNet's side. Because it is a repeat incident, the box may have an ongoing problem, which justifies the inspection request.
+2. **The wrong charge:** the technician visit was booked under the wrong category (""customer premises""). This triggered an automatic ₹350 fee for a fault that was SkyNet's responsibility.
+
+## (c) Refund Calculation
+
+**Step 1: Outage duration**
+- Monday 9 am to Thursday 9 am = 3 days (72 hours)
+- Thursday 9 am to 3 pm = 6 hours
+- **Total = 78 continuous hours**, which exceeds the 24-hour threshold, so the outage qualifies for credit.
+
+**Step 2: Full days credited**
+- 78 hours = 3 full days plus 6 hours.
+- Partial days are not credited, so **3 days** count.
+
+**Step 3: Daily rate**
+- ₹1,200 ÷ 30 = **₹40 per day**
+
+**Step 4: Outage credit**
+- 3 × ₹40 = **₹120**
+
+**Step 5: Technician fee**
+- The fault was confirmed on the provider's side, so the fee is refunded in full: **₹350**
+
+| Component | Amount |
+|---|---|
+| Outage credit (3 days × ₹40) | ₹120 |
+| Technician fee refund | ₹350 |
+| **Total refund owed** | **₹470** |
+
+**Recommended follow-up:** Correct the booking category for the visit so the fee isn't charged again. Also confirm the ₹470 credit to the customer explicitly, since the agent never told them the amount."
+2026-10-09T01:59:43+00:00,806e295a,cc_05,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,397,146,0.004508,0.3967,0.004508,192.264,4103.9,4296.2,10,llm_judge:mid,False,,,False,0,none,0.000439,441,False,"- The customer called City Gas Service to report that their gas cylinder booking (Booking No. CG4471) had not been delivered for a week.
+- The agent explained that the delay was caused by a breakdown of the delivery vehicle in the customer's area, and promised delivery by 10 AM the next morning.
+- The customer stressed the urgency because they were unable to cook at home, and the agent confirmed the delivery and said an SMS update would be sent."
+2026-10-09T01:59:48+00:00,806e295a,cc_06,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,easy,easy,101,54,0.001484,0.1306,0.001484,151.723,2743.3,2895.0,10,llm_judge:mid,False,,,False,0,none,0.000313,301,False,"The customer asked AirGo support to change their account email from old@mail.com to new@mail.com, and the agent updated it and said a verification link would be sent to the new address."
+2026-10-09T02:00:09+00:00,806e295a,cc_07,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,326,1541,0.032124,2.8269,0.032124,246.502,18788.2,19034.7,10,llm_judge:mid,False,,,False,0,none,0.001211,1471,False,"# Call Analysis: EasyLoan, Agent ""Rohan""
+
+## 1. Summary
+
+A customer called to follow up on a personal loan application submitted the day before. The agent:
+
+- found the application,
+- told the customer they would ""definitely"" be approved at a ""guaranteed"" 10.5% rate because they are salaried,
+- asked for the customer's full 16-digit card number and expiry date, saying it was needed to ""verify your bank"",
+- reassured the hesitant customer that this was safe and routine.
+
+The customer began reading out the card number (at least the first 8 digits, ""4532 1198 ...""). The agent said they would hear back in 2 days. The call shows no credit check, no recorded-call disclosure, and no proper identity verification.
+
+## 2. Compliance Problems
+
+| # | Rule | What the agent said | Severity |
+|---|------|--------------------|----------|
+| 1 | **Never promise a specific interest rate before a credit check** | ""You'll definitely get it at 10.5%, that's guaranteed for salaried people."" | **High.** This promises both approval and a specific rate, with no credit check. Basing it on employment type alone is not a valid pricing basis. It creates misleading expectations and possible mis-selling liability. |
+| 2 | **Never ask for the full card number on a call** | ""Just read me your full 16-digit card number and expiry so I can verify your bank."" | **Critical.** This is a direct breach. Asking for the expiry date as well raises the risk. A card number is not a legitimate way to verify a bank for a loan application. |
+| 3 | **Never ask for the full card number** (aggravating factor) | ""Totally, we do this all the time."" | **Critical.** The customer raised a concern, and the agent gave false reassurance instead of stopping. The claim that this is routine contradicts company policy. It suggests either a pattern of breaches or deliberate deception. |
+| 4 | **Always read the recorded-call disclosure** | Opened with ""Hi, this is Rohan from EasyLoan"" only. No disclosure at any point. | **High.** The disclosure was missing entirely. This may create legal or consent problems, especially because sensitive card data now appears to be on the recording. |
+
+**Further concerns (not in the stated rules, but significant):**
+- **Card data exposure.** At least 8 digits were spoken and are likely in the recording and any transcript. Under PCI-DSS and data-protection rules, this data may need redaction and secure handling.
+- **Possible fraud indicator.** An agent who promises guaranteed approval, then asks for card details on a pretext and dismisses the customer's concern, matches a common social-engineering pattern. Whether this is a poorly trained agent or a bad actor, it needs investigating.
+- **No identity verification.** The agent never confirmed who the customer was before discussing the application.
+
+## 3. Escalation Decision
+
+**Decision: Yes. Escalate to a supervisor immediately and treat it as urgent, not routine QA.**
+
+**Justification:**
+1. **All three company rules were broken in one short call.** This is not a single slip; it suggests a systemic training failure or intentional misconduct.
+2. **Customer harm is ongoing.** Partial card data has been disclosed and the customer has been misled about approval and rate. Someone needs to contact the customer to:
+   - correct the rate and approval promise,
+   - tell them EasyLoan never asks for full card numbers,
+   - advise them to monitor or contact their card issuer.
+3. **Data security incident.** The recording and transcript likely hold card data. They need redaction or secure handling, and possibly review by the data protection or security team.
+4. **Possible fraud risk.** ""We do this all the time"" means other calls by this agent should be audited. Depending on the findings, the agent's access may need to be suspended pending investigation.
+5. **Regulatory exposure.** Misleading rate guarantees, card data collection, and the missing recording disclosure each carry potential regulatory consequences. A supervisor, and likely Compliance, should be involved.
+
+**Recommended immediate actions:**
+- Supervisor reviews the full recording.
+- Notify Compliance and Information Security.
+- Redact or secure the card data in the recording and transcript.
+- Make a remediation call to the customer.
+- Audit the agent's recent calls.
+- Suspend or retrain the agent, depending on the investigation's outcome."
+2026-10-09T02:00:17+00:00,806e295a,cc_08,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,medium,medium,213,242,0.005692,0.5009,0.005692,190.747,5312.6,5503.3,10,llm_judge:mid,False,,,False,0,none,0.00046,470,False,"**Call Summary – SwiftCab Support**
+
+**Problem:**
+The customer booked a ride the previous night (Ride ID: SC90113). The driver cancelled the ride, but the customer was wrongly charged a ₹60 cancellation fee.
+
+**Action Taken:**
+The agent checked the ride details and confirmed the driver had cancelled, so the charge was applied in error. The agent started a ₹60 refund during the call.
+
+**Follow-up:**
+The ₹60 refund will be credited to the customer's wallet within 3 days. No further action is needed from the customer. The customer accepted the resolution and thanked the agent."
+2026-10-09T02:00:28+00:00,806e295a,de_01,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,medium,medium,239,317,0.007296,0.642,0.007296,215.972,7592.1,7808.1,10,llm_judge:mid,False,,,False,0,none,0.000541,622,False,"```json
+{
+  ""invoice_number"": ""INV-2026-0457"",
+  ""invoice_date"": ""2026-09-12"",
+  ""vendor"": ""Meridian Office Supplies Pvt Ltd"",
+  ""total_amount"": 18998.00,
+  ""currency"": ""INR"",
+  ""due_date"": ""2026-10-12""
+}
+```
+
+**Notes:**
+- I converted dates to ISO 8601 format (YYYY-MM-DD). The originals were ""12-Sep-2026"" and ""12-Oct-2026"".
+- `total_amount` is the Grand Total including 18% GST. The pre-tax subtotal is ₹16,100. The line items, subtotal, and tax all add up correctly.
+- The currency is inferred as INR from the ₹ symbol."
+2026-10-09T02:00:35+00:00,806e295a,de_02,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,183,328,0.007292,0.6417,0.007292,170.63,5302.8,5473.4,10,llm_judge:mid,False,,,False,0,none,0.00045,504,False,"```json
+{
+  ""dukaan_naam"": ""श्री बालाजी किराना स्टोर"",
+  ""tareekh"": ""03/10/2026"",
+  ""kul_rashi"": 725,
+  ""bhugtan_tarika"": ""UPI (PhonePe)""
+}
+```
+
+**टिप्पणी:**
+- `kul_rashi` को संख्या के रूप में रखा गया है। तीनों वस्तुओं का जोड़ (₹320 + ₹260 + ₹145) भी ₹725 ही आता है, इसलिए कुल राशि सही है।
+- रसीद में तारीख का प्रारूप स्पष्ट नहीं है। भारतीय प्रारूप (DD/MM/YYYY) में यह 3 अक्टूबर 2026 होगी। इसलिए इसे मूल रूप में ही रखा गया है।"
+2026-10-09T02:00:50+00:00,806e295a,de_03,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,303,1331,0.027832,2.4492,0.027832,248.25,12477.3,12725.5,10,llm_judge:mid,False,,,False,0,none,0.00133,1613,False,"# Payment Terms and Amount Payable on 20-Nov-2026
+
+## 1. Extracted Payment Terms (JSON)
+
+```json
+{
+  ""fee"": {
+    ""type"": ""fixed"",
+    ""amount"": 240000,
+    ""currency"": ""INR"",
+    ""tax_treatment"": ""exclusive of applicable taxes"",
+    ""clause"": ""4.1""
+  },
+  ""taxes"": {
+    ""type"": ""GST"",
+    ""rate_percent"": 18,
+    ""applies_to"": ""all fees"",
+    ""clause"": ""4.2""
+  },
+  ""invoicing"": {
+    ""invoice_date"": ""2026-10-01"",
+    ""payment_term_days"": 30,
+    ""due_date"": ""2026-10-31"",
+    ""clause"": ""4.3""
+  },
+  ""late_payment"": {
+    ""interest_type"": ""simple"",
+    ""annual_rate_percent"": 18,
+    ""accrual"": ""daily"",
+    ""base"": ""total invoiced amount including GST"",
+    ""accrual_start"": ""day after due date"",
+    ""accrual_end"": ""date of payment"",
+    ""clause"": ""4.4""
+  }
+}
+```
+
+## 2. Calculation for Payment on 20-Nov-2026
+
+**Step 1: Base fee**
+₹2,40,000
+
+**Step 2: GST at 18%**
+₹2,40,000 × 0.18 = ₹43,200
+
+**Step 3: Total invoiced amount**
+₹2,40,000 + ₹43,200 = **₹2,83,200**
+
+**Step 4: Due date**
+01-Oct-2026 + 30 days = **31-Oct-2026**
+
+**Step 5: Days late**
+Interest runs from 01-Nov-2026 (the day after the due date) to 20-Nov-2026. Counting both ends, that is **20 days**.
+
+**Step 6: Daily interest** (assuming a 365-day year)
+₹2,83,200 × 18% ÷ 365 = ₹50,976 ÷ 365 = ₹139.6603 per day
+
+**Step 7: Total late-payment interest**
+₹139.6603 × 20 = **₹2,793.21**
+
+**Step 8: Total payable**
+₹2,83,200 + ₹2,793.21 = **₹2,85,993.21**
+
+## 3. Summary
+
+| Component | Amount (₹) |
+|---|---|
+| Fee | 2,40,000.00 |
+| GST (18%) | 43,200.00 |
+| Invoice total | 2,83,200.00 |
+| Late interest (20 days @ 18% p.a.) | 2,793.21 |
+| **Total payable on 20-Nov-2026** | **2,85,993.21** |
+
+## 4. Assumptions to Confirm
+
+- **Day-count basis:** The contract does not say whether to use 365 or 360 days. I used 365, which is standard in India.
+- **Inclusive day count:** ""Until payment"" is read here as including the payment date (20 days). If the payment date is excluded, it is 19 days. Interest would then be ₹2,653.55 and the total ₹2,85,853.55.
+- **GST on interest:** In India, GST may also apply to late-payment interest charged by a supplier, since it forms part of the value of supply. The contract does not address this. If it applies, add 18% on the interest (₹502.78), giving a total of ₹2,86,495.99."
+2026-10-09T02:00:56+00:00,806e295a,de_04,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,medium,easy,88,43,0.001212,0.1067,0.001212,151.537,3407.8,3559.3,10,llm_judge:mid,False,,,False,0,none,0.000311,307,False,"```json
+{
+  ""phone"": ""+91 98491 22310"",
+  ""email"": ""priya.r@northwind.example""
+}
+```"
+2026-10-09T02:01:04+00:00,806e295a,de_05,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,medium,medium,219,421,0.009296,0.818,0.009296,200.328,5943.6,6143.9,10,llm_judge:mid,False,,,False,0,none,0.000608,679,False,"Since a JSON array can't hold a named field, I've wrapped the line items in an object alongside `grand_total`:
+
+```json
+{
+  ""line_items"": [
+    {
+      ""item"": ""LED tube light 20W"",
+      ""quantity"": 40,
+      ""unit_price"": 210,
+      ""line_total"": 8400
+    },
+    {
+      ""item"": ""MCB 32A single pole"",
+      ""quantity"": 12,
+      ""unit_price"": 385,
+      ""line_total"": 4620
+    },
+    {
+      ""item"": ""Copper wire 1.5 sq mm (90 m roll)"",
+      ""quantity"": 6,
+      ""unit_price"": 1450,
+      ""line_total"": 8700
+    },
+    {
+      ""item"": ""Junction box 4x4"",
+      ""quantity"": 25,
+      ""unit_price"": 48,
+      ""line_total"": 1200
+    }
+  ],
+  ""grand_total"": 22920
+}
+```
+
+All amounts are in Indian Rupees (₹). If you need the bare array format instead, let me know."
+2026-10-09T02:01:39+00:00,806e295a,de_06,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,292,2819,0.057548,5.0642,0.057548,241.267,31914.8,32156.1,10,llm_judge:mid,False,,,False,0,none,0.001659,2024,False,"## Extracted Clauses
+
+```json
+[
+  {
+    ""clause_id"": ""7.1"",
+    ""topic"": ""Termination / Notice Period"",
+    ""text"": ""Either party may terminate this Agreement for convenience with 60 days' written notice.""
+  },
+  {
+    ""clause_id"": ""7.2"",
+    ""topic"": ""Termination / Notice Period"",
+    ""text"": ""The Customer may terminate immediately upon a material breach by the Vendor that is not cured within 15 days of notice.""
+  },
+  {
+    ""clause_id"": ""9.1"",
+    ""topic"": ""Liability"",
+    ""text"": ""The Vendor's aggregate liability under this Agreement shall not exceed the fees paid in the 12 months preceding the claim.""
+  },
+  {
+    ""clause_id"": ""9.2"",
+    ""topic"": ""Liability"",
+    ""text"": ""Notwithstanding clause 9.1, the Vendor shall be liable for all losses, without limit, arising from any breach of its data-protection obligations.""
+  },
+  {
+    ""clause_id"": ""12.4"",
+    ""topic"": ""Liability"",
+    ""text"": ""The Vendor shall not be liable for any indirect or consequential loss, including loss of data, under any circumstances.""
+  }
+]
+```
+
+## Contradiction Analysis
+
+### 1. Clause 9.2 vs Clause 12.4: genuine conflict
+
+| | Clause 9.2 | Clause 12.4 |
+|---|---|---|
+| Effect | Vendor liable for **all losses, without limit** for data-protection breaches | Vendor **not liable** for indirect/consequential loss, **including loss of data**, **under any circumstances** |
+| Override language | ""Notwithstanding clause **9.1**"" | ""Under any circumstances"" |
+
+**Why they conflict:** A data-protection breach will very often cause loss of data, plus downstream losses such as remediation, customer claims and reputational harm. Clause 9.2 says the Vendor bears *all* of those losses. Clause 12.4 says loss of data, and any indirect or consequential loss, is *never* recoverable.
+
+**The drafting gap:** Clause 9.2's ""notwithstanding"" carve-out refers only to clause 9.1, the cap. It does not mention clause 12.4. So it can be read in two ways:
+
+- **Reading A (Vendor-favourable):** Clause 9.2 removes the *cap* only. Clause 12.4 still excludes indirect loss and loss of data. The Vendor's uncapped exposure is therefore limited to *direct* losses from data-protection breaches.
+- **Reading B (Customer-favourable):** ""All losses, without limit"" is a specific provision for data protection and should prevail over the general exclusion in 12.4. The Vendor would then be fully exposed, including for data loss.
+
+**How a court might resolve it** (this depends on the governing law, which the agreement excerpt doesn't state):
+
+- **Specific overrides general.** This cuts both ways. Clause 9.2 is specific to data protection, but clause 12.4 specifically names ""loss of data.""
+- **Strict construction of exclusion clauses.** Exclusions are typically read narrowly against the party relying on them, here the Vendor. Courts also tend to resist interpretations that strip a remedy of practical value. If 12.4 swallowed most of 9.2, the ""without limit"" promise would be largely hollow, which favours Reading B.
+- **Meaning of ""indirect or consequential.""** In English-law-based systems this traditionally means only losses outside the parties' ordinary contemplation (second limb of *Hadley v Baxendale*). Much data-breach loss may be *direct*. Even under Reading A, the Vendor's exposure could therefore remain large.
+- **Contra proferentem.** If the Vendor drafted the agreement, ambiguity is likely to be resolved against it.
+
+**Legal implications for the Vendor:**
+1. **Unpredictable, potentially uncapped exposure.** The Vendor cannot reliably price or insure its data-protection risk. In the worst case it faces unlimited liability that includes data loss.
+2. **Weak reliance on 12.4.** The Vendor should not assume the exclusion will shield it from data-related claims. ""Under any circumstances"" may not survive against the specific 9.2 undertaking.
+3. **Litigation risk.** The ambiguity itself invites dispute, adding cost and delay even if the Vendor ultimately prevails.
+4. **Statutory overlay.** Liability owed directly to data subjects or regulators (e.g. under GDPR/UK GDPR) generally cannot be excluded by contract, whatever the clauses say. Fines may or may not be recoverable between the parties as a matter of public policy.
+5. **Insurance mismatch.** The Vendor's cyber/PI cover may be capped well below an unlimited contractual exposure.
+
+**Recommended fix:** Amend clause 9.2 to state expressly how it interacts with 12.4. For example: ""Notwithstanding clauses 9.1 and 12.4…"" makes it fully uncapped and inclusive. ""Subject to clause 12.4…"" preserves the exclusion. A Vendor would ideally negotiate a separate, higher ""super-cap"" for data-protection claims rather than unlimited liability.
+
+### 2. Clause 7.1 vs Clause 7.2: no true contradiction
+
+These provide **independent termination routes** and can coexist:
+- 7.1 is a mutual, no-fault exit on 60 days' notice.
+- 7.2 is a Customer-only right for uncured material breach. ""Immediately"" means termination takes effect without the 60-day notice once the 15-day cure period has expired.
+
+**Points for the Vendor to note:**
+- **Asymmetry.** The Vendor has no equivalent express right to terminate for the Customer's breach, such as non-payment. It must rely on 7.1 (60 days) or on general law rights, which vary by jurisdiction.
+- **""Material breach"" is undefined.** This could lead to disputes over whether the 7.2 right was validly triggered.
+- **Interaction with liability.** A failed cure under 7.2 involving data protection could trigger both termination and the uncapped exposure in 9.2.
+
+### 3. Clause 9.1 vs Clause 12.4: consistent
+
+These work together: a cap on total liability plus an exclusion of a category of loss. There is no conflict.
+
+---
+
+*Note: This analysis is general and not legal advice. The outcome of any dispute will depend on the governing law, the full agreement (including any order-of-precedence or interpretation clause), and the factual context.*"
+2026-10-09T02:01:47+00:00,806e295a,de_07,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,medium,medium,189,345,0.007656,0.6737,0.007656,161.181,5901.0,6062.2,10,llm_judge:mid,False,,,False,0,none,0.000497,567,False,"```json
+{
+  ""customer_name"": ""Sunita Verma"",
+  ""items"": [
+    { ""name"": ""Atta (10 kg packet)"", ""qty"": 2 },
+    { ""name"": ""Sarson ka tel (1 litre)"", ""qty"": 1 },
+    { ""name"": ""Ande (dozen)"", ""qty"": 3 }
+  ],
+  ""delivery_address"": ""Flat 302, Shanti Apartments, Sector 12, Noida"",
+  ""payment_mode"": ""Cash on Delivery""
+}
+```
+
+**Notes:**
+- Item ka size/unit (10 kg, 1 litre, dozen) `name` mein hi rakha hai, taaki `qty` sirf number rahe. Agar aapko alag `unit` field chahiye, to batayein, main structure badal dunga.
+- Message mein delivery time bhi hai: ""Kal subah tak"". Yeh requested fields mein nahi tha, isliye JSON mein nahi daala. Zarurat ho to `delivery_time` field add kar sakte hain."
+2026-10-09T02:01:56+00:00,806e295a,de_08,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,medium,medium,161,242,0.005484,0.4826,0.005484,166.151,6494.9,6661.1,10,llm_judge:mid,False,,,False,0,none,0.000425,470,False,"```json
+{
+  ""title"": ""Senior Data Engineer"",
+  ""company"": ""Lumen Retail Tech"",
+  ""location"": ""Bengaluru (hybrid)"",
+  ""experience_years"": ""5-8"",
+  ""skills"": [""Python"", ""Spark"", ""Airflow"", ""SQL"", ""Kafka""],
+  ""salary_range"": ""₹28-38 LPA""
+}
+```
+
+Notes:
+- **Skills:** Kafka is listed as ""a plus,"" so it's optional. Python, Spark, Airflow and SQL are required. If you want that distinction kept, you could split the field into `required_skills` and `preferred_skills`.
+- **Salary:** The posting says CTC (cost to company), and the final figure depends on experience."
+2026-10-09T02:02:01+00:00,806e295a,tr_01,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_target,medium,easy,38,88,0.001912,0.1683,0.001912,132.739,2963.4,3096.1,10,llm_judge:mid,False,,,False,0,none,0.000256,241,False,"""आपका ऑर्डर भेज दिया गया है और मंगलवार को पहुँच जाएगा।""
+
+**Transliteration:** *Aapka order bhej diya gaya hai aur Mangalvaar ko pahunch jaayega.*"
+2026-10-09T02:02:07+00:00,806e295a,tr_02,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,148,72,0.002032,0.1788,0.002032,165.97,3860.8,4026.8,10,llm_judge:mid,False,,,False,0,none,0.000318,308,False,"""The washing machine I bought last week is making a strange noise, and sometimes it stops in the middle of a cycle. Can a technician come this week? I'll be at home on Saturday."""
+2026-10-09T02:02:13+00:00,806e295a,tr_03,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,105,97,0.00236,0.2077,0.00236,137.078,4524.5,4661.6,10,llm_judge:mid,False,,,False,0,none,0.000271,258,False,The mobile phone I bought at your shop yesterday isn't charging. I have the bill with me. Could you replace it tomorrow?
+2026-10-09T02:02:52+00:00,806e295a,tr_04,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_target,hard,hard,265,3430,0.06966,6.1301,0.06966,249.709,34974.9,35224.6,10,llm_judge:mid,False,,,False,0,none,0.001257,1532,False,"# सूचना
+
+एतद्द्वारा आपसे अपेक्षा की जाती है कि आप इस सूचना की प्राप्ति के 15 (पंद्रह) दिनों के भीतर ₹4,75,000/- (रुपये चार लाख पचहत्तर हज़ार मात्र) की बकाया राशि का भुगतान करें। ऐसा न करने की दशा में हमारे मुवक्किल बिना किसी अतिरिक्त सूचना के विधिक कार्यवाही आरंभ करेंगे। हमारे मुवक्किल दिनांक 01 अगस्त, 2026 से 12% (बारह प्रतिशत) प्रतिवर्ष की दर से ब्याज का दावा करने का अधिकार सुरक्षित रखते हैं। यह सूचना हमारे मुवक्किल के अन्य अधिकारों एवं उपचारों पर प्रतिकूल प्रभाव डाले बिना जारी की जा रही है। आप अपने व्यतिक्रम से उत्पन्न होने वाले समस्त व्ययों के विरुद्ध हमारे मुवक्किल की क्षतिपूर्ति करेंगे। समय सारभूत है।
+
+---
+
+## Terms Without an Exact Hindi Equivalent and How They Were Handled
+
+**1. ""Without prejudice"" → ""…पर प्रतिकूल प्रभाव डाले बिना""**
+- English legal usage gives this phrase two different meanings:
+  - **Reservation of rights:** the notice does not waive other claims.
+  - **Privileged settlement communication:** the document cannot be used as evidence. This rests on S. 23 of the Indian Evidence Act, 1872, now S. 21 of the Bharatiya Sakshya Adhiniyam, 2023.
+- In this clause the phrase qualifies ""other rights and remedies,"" so it carries the first meaning. I used the standard Rajbhasha formulation for that sense.
+- A literal rendering such as ""बिना पूर्वाग्रह के"" would be wrong. It means ""without bias"" and carries no legal effect.
+- **Caution:** the Hindi phrase does *not* invoke settlement privilege. That does not matter here, because a demand notice is meant to be relied upon in court.
+
+**2. ""Indemnify against"" → ""…के विरुद्ध … की क्षतिपूर्ति करेंगे""**
+- ""क्षतिपूर्ति"" is the term used in the authoritative Hindi text of the Indian Contract Act, 1872, which renders ""contract of indemnity"" (S. 124) as ""क्षतिपूर्ति की संविदा"".
+- ""क्षतिपूर्ति"" on its own can be read as mere *compensation* for loss already suffered. English ""indemnify against"" also covers future costs and implies holding the client harmless.
+- I kept ""के विरुद्ध"" (""against"") to preserve that protective, forward-looking scope rather than writing ""व्ययों की क्षतिपूर्ति"" (compensating expenses).
+
+**3. ""Time is of the essence"" → ""समय सारभूत है""**
+- Hindi has no natural idiom for this. Literal or colloquial versions, such as ""समय बहुत महत्वपूर्ण है"" (""time is very important""), lose the legal consequence.
+- I followed the Hindi text of S. 55 of the Indian Contract Act, which uses the concept of time being ""सार"" (essence).
+- The legal effect is that failure to perform within the stipulated time is a breach in itself.
+
+**4. ""Default"" → ""व्यतिक्रम""**
+- I used the official legal-glossary term rather than the general word ""चूक"" (lapse or mistake), which is less precise.
+
+**5. ""Our client"" → ""हमारे मुवक्किल""**
+- This is the established term in Indian legal notices.
+- ""पक्षकार"" (party) is an alternative, but it does not convey the advocate–client relationship.
+
+**6. ""Costs"" → ""व्यय""**
+- I used ""व्यय"" in the general sense of all expenses.
+- I avoided ""खर्चा"" because in Indian court usage it often refers narrowly to litigation costs awarded by the court. That reading would narrow the indemnity.
+
+## Notes on Figures and Formatting
+- **Amount:** ₹4,75,000 is kept exactly. I added ""/-"" and the amount in words (""रुपये चार लाख पचहत्तर हज़ार मात्र""), as is standard in Indian legal drafting to prevent alteration. This is an addition to the source; remove it if strict literalness is required.
+- **Date:** 01-Aug-2026 is written as ""01 अगस्त, 2026"" to avoid any day/month ambiguity.
+- **Numbers:** 15 days and 12% are retained, with words added in parentheses.
+- **Omission kept:** the original does not say *against whom* proceedings will be initiated, so I did not add ""आपके विरुद्ध"" (""against you"").
+
+**Recommendation:** Have an advocate practising in the relevant court review the translation before filing. Some High Courts and district courts have local terminology preferences, and the notice will also need the sender's and addressee's details, a reference number, and a signature block."
+2026-10-09T02:03:02+00:00,806e295a,tr_05,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,medium,medium,132,398,0.008488,0.7469,0.008488,165.762,6281.2,6447.0,10,llm_judge:mid,False,,,False,0,none,0.000487,533,False,"**Subject: Request for Resolution – Failed Recharge of ₹299 with Amount Debited**
+
+Dear Customer Support Team,
+
+I am writing to bring to your attention an issue with a recharge I attempted through your app.
+
+Two days ago, I initiated a recharge of ₹299. Although the amount was debited from my account, the recharge was not credited to my number. Despite the time that has passed, I have not received any response or update regarding this matter.
+
+I kindly request that you either process the recharge or refund the debited amount at the earliest. Should the issue remain unresolved, I may be compelled to escalate the matter to the appropriate consumer forum.
+
+For your reference, please find the transaction details below:
+- **Recharge Amount:** ₹299
+- **Transaction Date:** [Insert date]
+- **Transaction ID:** [Insert transaction ID]
+- **Mobile Number:** [Insert number]
+
+I look forward to your prompt assistance in resolving this matter.
+
+Thank you for your time and attention.
+
+Yours sincerely,
+[Your Name]
+[Contact Information]
+
+---
+
+*Tip:* Adding the transaction ID and a screenshot of the debit message will help the support team resolve your complaint faster."
+2026-10-09T02:03:13+00:00,806e295a,tr_06,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_target,medium,medium,81,485,0.010024,0.8821,0.010024,131.127,7891.3,8022.4,10,llm_judge:mid,False,,,False,0,none,0.00057,564,False,"Here's the Telugu translation:
+
+""ప్రియమైన వినియోగదారులకు, సెప్టెంబర్ నెలకు సంబంధించిన మీ విద్యుత్ బిల్లు ₹1,340 అక్టోబర్ 15 లోపు చెల్లించాలి. ఆలస్య రుసుము పడకుండా ఉండాలంటే యాప్ ద్వారా చెల్లించండి.""
+
+**Notes:**
+- **""విద్యుత్ బిల్లు""** is the standard formal term. You could also use **""కరెంటు బిల్లు""**, which is more colloquial and widely used in Andhra Pradesh.
+- **""ఆలస్య రుసుము""** is the formal term for late fee. A simpler alternative is **""లేట్ ఫీజు""**, which many customers will recognize instantly.
+- **Length:** Telugu text uses Unicode, so one SMS segment holds about 70 characters. This message will likely span 2–3 segments, which may affect cost.
+
+For a more conversational version suited to a broader audience:
+
+""ప్రియమైన వినియోగదారులకు, సెప్టెంబర్ నెల కరెంటు బిల్లు ₹1,340 అక్టోబర్ 15 లోపు కట్టాలి. లేట్ ఫీజు పడకుండా యాప్ ద్వారా చెల్లించండి."""
+2026-10-09T02:03:14+00:00,806e295a,tr_07,translation,translation,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_target,medium,hard,0,0,0.0,0.0,,184.441,580.2,764.6,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:14+00:00,806e295a,cl_01,classification,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,easy,easy,0,0,0.0,0.0,,123.22,598.8,722.0,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:15+00:00,806e295a,cl_02,classification,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,hard,easy,0,0,0.0,0.0,,126.214,622.9,749.1,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:16+00:00,806e295a,cl_03,classification,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,easy,0,0,0.0,0.0,,116.294,566.5,682.8,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:17+00:00,806e295a,cl_04,classification,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,0,0,0.0,0.0,,242.859,569.4,812.3,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:17+00:00,806e295a,cl_05,classification,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,easy,easy,0,0,0.0,0.0,,118.316,656.7,775.0,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:18+00:00,806e295a,cl_06,classification,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,hard,easy,0,0,0.0,0.0,,139.349,659.0,798.3,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:19+00:00,806e295a,cl_07,classification,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,0,0,0.0,0.0,,244.661,830.4,1075.1,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:20+00:00,806e295a,de_09,document_extraction,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,0,0,0.0,0.0,,303.58,632.8,936.4,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:21+00:00,806e295a,de_10,document_extraction,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,medium,hard,0,0,0.0,0.0,,237.659,566.6,804.3,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:22+00:00,806e295a,de_11,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,0,0,0.0,0.0,,306.445,580.1,886.5,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:23+00:00,806e295a,de_12,document_extraction,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,hard,hard,0,0,0.0,0.0,,256.335,607.7,864.0,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:24+00:00,806e295a,de_13,document_extraction,document_extraction,quality,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,0,0,0.0,0.0,,302.074,724.3,1026.4,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:25+00:00,806e295a,cc_09,call_centre_summary,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,hard,hard,0,0,0.0,0.0,,249.41,671.2,920.6,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:26+00:00,806e295a,cc_10,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,english,medium,medium,0,0,0.0,0.0,,243.655,688.8,932.5,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:27+00:00,806e295a,cc_11,call_centre_summary,call_centre_summary,cost,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,indic_script,medium,medium,0,0,0.0,0.0,,397.312,743.5,1140.8,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:28+00:00,806e295a,cc_12,call_centre_summary,classification,speed,always_frontier,deberta,frontier,baseline: always frontier,anthropic/claude-opus-5.5,romanised_indic,hard,hard,0,0,0.0,0.0,,224.55,565.0,789.5,0,skipped,False,,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:29+00:00,806e295a,cc_01,call_centre_summary,call_centre_summary,cost,router,deberta,mid,"call_centre_summary (cost), hard, english -> upper_mid",google/gemini-3.8-flash,english,hard,medium,0,0,0.0,0.0,,177.789,1249.4,1427.2,0,skipped,True,api_error on upper_mid -> retry mid,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:33+00:00,806e295a,cc_02,call_centre_summary,call_centre_summary,cost,router,deberta,indic,"call_centre_summary (cost), medium, romanised_indic -> Sarvam (Indic rule)",sarvam-105b,romanised_indic,medium,medium,162,117,0.000151,0.0133,,229.921,1034.7,1264.6,10,llm_judge:mid,False,,,False,0,none,0.00045,476,False,"Here is the short summary of the call in English:
+
+* **Issue:** The customer's order (FM88213) was stuck in 'out for delivery' status for 4 days and had not been delivered.
+* **Resolution:** The agent identified that the delivery partner had entered the wrong pincode and initiated a re-dispatch of the order.
+* **Follow-up:** The agent assured the customer that the package would arrive by tomorrow. If it does not arrive by tomorrow evening, the customer will call back to request a full refund."
+2026-10-09T02:03:34+00:00,806e295a,cc_03,call_centre_summary,classification,speed,router,deberta,indic,"classification (speed), easy, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,easy,medium,147,83,0.000118,0.0104,,236.528,697.0,933.5,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"इस कॉल के सारांश में ग्राहक ने बताया कि कल रात से उनके घर की बिजली नहीं आ रही है, जबकि आस-पास के घरों में बिजली है। इसके बाद, एजेंट ने उनका कंज्यूमर नंबर लेकर उनके मीटर में फॉल्ट होने की पुष्टि की और शिकायत संख्या 7781 दर्ज करते हुए आज शाम 5 बजे के लिए एक टेक्नीशियन की विज़िट बुक कर दी।"
+2026-10-09T02:03:36+00:00,806e295a,cc_04,call_centre_summary,call_centre_summary,cost,router,deberta,mid,"call_centre_summary (cost), hard, english -> upper_mid",google/gemini-3.8-flash,english,hard,hard,0,0,0.0,0.0,,254.995,1300.6,1555.6,0,skipped,True,api_error on upper_mid -> retry mid,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:38+00:00,806e295a,cc_05,call_centre_summary,call_centre_summary,cost,router,deberta,indic,"call_centre_summary (cost), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,147,106,0.000137,0.0121,,268.494,922.6,1191.1,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"Here is the summary of the call in 3 points:
+
+1. The customer contacted customer service because their gas cylinder (Booking No: CG4471) had not been delivered for a week.
+2. The agent explained that the delivery vehicle in their area had broken down and assured the customer that the cylinder would be delivered by 10:00 AM the next day.
+3. The customer requested a strict confirmation, and the agent agreed to send an SMS update once the delivery is completed."
+2026-10-09T02:03:39+00:00,806e295a,cc_06,call_centre_summary,call_centre_summary,cost,router,deberta,mid,"call_centre_summary (cost), easy, english -> cheap",google/gemini-3.8-flash,english,easy,easy,0,0,0.0,0.0,,152.335,1350.5,1502.8,0,skipped,True,api_error on cheap -> retry mid,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:41+00:00,806e295a,cc_07,call_centre_summary,call_centre_summary,cost,router,deberta,cheap,"call_centre_summary (cost), hard, english -> upper_mid; pre-check: upper_mid unhealthy (2 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,hard,hard,0,0,0.0,0.0,,242.755,1702.7,1945.5,0,skipped,True,api_error on mid -> retry cheap,upper_mid unhealthy (2 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:43+00:00,806e295a,cc_08,call_centre_summary,call_centre_summary,cost,router,deberta,indic,"call_centre_summary (cost), medium, romanised_indic -> Sarvam (Indic rule)",sarvam-105b,romanised_indic,medium,medium,142,107,0.000136,0.012,,190.619,750.7,941.3,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"Here is the summary of the call in English:
+
+**Problem:** 
+The customer was wrongly charged a ₹60 cancellation fee for a ride (Ride ID: SC90113) because the driver canceled the booking on the night of the ride.
+
+**Action:** 
+The agent verified the issue and initiated a ₹60 refund to the customer's SwiftCab wallet.
+
+**Follow-up:** 
+The refund is expected to reflect in the customer's wallet within 3 days."
+2026-10-09T02:03:44+00:00,806e295a,de_01,document_extraction,document_extraction,quality,router,deberta,cheap,"document_extraction (quality), medium, english -> upper_mid; pre-check: upper_mid unhealthy (2 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,medium,medium,0,0,0.0,0.0,,257.897,1380.2,1638.1,0,skipped,True,api_error on mid -> retry cheap,upper_mid unhealthy (2 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:46+00:00,806e295a,de_02,document_extraction,document_extraction,quality,router,deberta,indic,"document_extraction (quality), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,124,74,0.000103,0.009,,170.882,732.4,903.3,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"```json
+{
+  ""dukaan_naam"": ""श्री बालाजी किराना स्टोर"",
+  ""tareekh"": ""03/10/2026"",
+  ""kul_rashi"": ""₹725"",
+  ""bhugtan_tarika"": ""UPI (PhonePe)""
+}
+```"
+2026-10-09T02:03:48+00:00,806e295a,de_03,document_extraction,document_extraction,quality,router,deberta,upper_mid,"document_extraction (quality), hard, english -> frontier",anthropic/claude-sonnet-5.5,english,hard,hard,0,0,0.0,0.0,,244.462,1499.8,1744.3,0,skipped,True,api_error on frontier -> retry upper_mid,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:49+00:00,806e295a,de_04,document_extraction,document_extraction,quality,router,deberta,cheap,"document_extraction (quality), medium, english -> upper_mid; pre-check: upper_mid unhealthy (3 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,medium,easy,0,0,0.0,0.0,,145.61,1177.0,1322.6,0,skipped,True,api_error on mid -> retry cheap,upper_mid unhealthy (3 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:50+00:00,806e295a,de_05,document_extraction,document_extraction,quality,router,deberta,cheap,"document_extraction (quality), medium, english -> upper_mid; pre-check: upper_mid unhealthy (3 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,medium,medium,0,0,0.0,0.0,,216.756,1063.1,1279.9,0,skipped,True,api_error on mid -> retry cheap,upper_mid unhealthy (3 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:51+00:00,806e295a,de_06,document_extraction,document_extraction,quality,router,deberta,upper_mid,"document_extraction (quality), hard, english -> frontier",anthropic/claude-sonnet-5.5,english,hard,hard,0,0,0.0,0.0,,251.369,823.6,1075.0,0,skipped,True,api_error on frontier -> retry upper_mid,,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:53+00:00,806e295a,de_07,document_extraction,document_extraction,quality,router,deberta,indic,"document_extraction (quality), medium, romanised_indic -> Sarvam (Indic rule)",sarvam-105b,romanised_indic,medium,medium,123,144,0.000161,0.0141,,156.4,914.8,1071.2,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"```json
+{
+  ""customer_name"": ""Sunita Verma"",
+  ""items"": [
+    {
+      ""name"": ""atta"",
+      ""qty"": ""2 packet (10 kg wala)""
+    },
+    {
+      ""name"": ""sarson ka tel"",
+      ""qty"": ""1 litre""
+    },
+    {
+      ""name"": ""ande"",
+      ""qty"": ""3 dozen""
+    }
+  ],
+  ""delivery_address"": ""Flat 302, Shanti Apartments, Sector 12, Noida"",
+  ""payment_mode"": ""cash on delivery""
+}
+```"
+2026-10-09T02:03:54+00:00,806e295a,de_08,document_extraction,document_extraction,quality,router,deberta,cheap,"document_extraction (quality), medium, english -> upper_mid; pre-check: upper_mid unhealthy (4 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,medium,medium,0,0,0.0,0.0,,243.237,766.7,1009.9,0,skipped,True,api_error on mid -> retry cheap,upper_mid unhealthy (4 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:03:55+00:00,806e295a,tr_01,translation,translation,cost,router,deberta,indic,"translation (cost), medium, indic_target -> Sarvam (Indic rule)",sarvam-105b,indic_target,medium,easy,30,13,2.1e-05,0.0018,,104.611,269.9,374.5,,llm_judge:mid,False,,,False,0,none,0.0,0,False,आपका ऑर्डर भेज दिया गया है और मंगलवार तक पहुँच जाएगा।
+2026-10-09T02:03:57+00:00,806e295a,tr_02,translation,translation,cost,router,deberta,indic,"translation (cost), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,71,289,0.000264,0.0232,,135.114,1355.1,1490.2,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"Here are a few ways to translate this message into English, depending on how formal you want it to be. 
+
+**Option 1: Natural and polite (Best for customer service)**
+""The washing machine I bought last week is making a strange noise and sometimes shuts down in the middle of a cycle. Could a technician come over this week? I will be at home on Saturday.""
+
+**Option 2: Slightly more formal**
+""I am writing regarding the washing machine I purchased last week. It is making an unusual noise and occasionally stops working mid-cycle. Is it possible for a technician to visit this week? I will be available at home on Saturday.""
+
+**Option 3: Short and direct (For a quick chat or text message)**
+""The washing machine I bought last week is making a weird noise and sometimes stops in the middle of a wash. Can a technician come this week? I'll be home on Saturday."" 
+
+**Key vocabulary used:**
+*   *अजीब आवाज़ (ajeeb awaaz)* -> strange/weird noise
+*   *बीच में ही बंद हो जाती है (beech mein hi band ho jaati hai)* -> shuts down in the middle / stops working mid-cycle
+*   *टेक्नीशियन (technician)* -> technician
+*   *घर पर रहूँगा (ghar par rahunga)* -> will be at home"
+2026-10-09T02:03:57+00:00,806e295a,tr_03,translation,translation,cost,router,deberta,indic,"translation (cost), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,50,26,3.8e-05,0.0034,,127.157,258.9,386.1,,llm_judge:mid,False,,,False,0,none,0.0,0,False,The mobile phone I bought at your shop yesterday isn't charging. I have the bill. Can I exchange it tomorrow?
+2026-10-09T02:03:58+00:00,806e295a,tr_04,translation,translation,cost,router,deberta,cheap,"translation (cost), hard, indic_target -> upper_mid; pre-check: upper_mid unhealthy (4 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,indic_target,hard,hard,0,0,0.0,0.0,,224.486,814.5,1039.0,0,skipped,True,api_error on mid -> retry cheap,upper_mid unhealthy (4 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:01+00:00,806e295a,tr_05,translation,translation,cost,router,deberta,indic,"translation (cost), medium, romanised_indic -> Sarvam (Indic rule)",sarvam-105b,romanised_indic,medium,medium,82,268,0.00025,0.022,,133.432,1703.1,1836.5,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"Here is a polite and formal version of your complaint, perfect for an email:
+
+**Subject:** Issue with pending ₹299 recharge – Request for immediate resolution
+
+Dear [Customer Support/Company Name],
+
+I am writing to bring to your attention an issue I recently faced with my recent transaction. On [Date of transaction], I successfully made a payment of ₹299 for a mobile recharge on your app. The amount was deducted from my bank account, but the recharge was not successfully processed. 
+
+It has been two days since the transaction, and I have not received any response or resolution regarding this matter. 
+
+I request you to kindly look into this at the earliest and either process the recharge immediately or initiate a refund of the deducted amount to my account. 
+
+I look forward to your prompt response and a quick resolution to this issue.
+
+Sincerely,
+
+[Your Name]  
+[Your Registered Mobile Number]  
+[Your Transaction ID]
+
+***
+
+**Tips before sending:**
+* Replace the bracketed text like **[Date of transaction]**, **[Your Name]**, and **[Your Transaction ID]** with your actual details. 
+* If you have the Transaction ID or a screenshot of the failed payment, it is highly recommended to attach it to the email."
+2026-10-09T02:04:02+00:00,806e295a,tr_06,translation,translation,cost,router,deberta,indic,"translation (cost), medium, indic_target -> Sarvam (Indic rule)",sarvam-105b,indic_target,medium,medium,60,148,0.000143,0.0126,,101.728,1229.3,1331.0,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"Here is the translation in Telugu, tailored for customers in Andhra Pradesh:
+
+**""ప్రియమైన వినియోగదారులారా, సెప్టెంబర్ నెలకు సంబంధించిన మీ విద్యుత్ బిల్లు ₹1,340, 15 అక్టోబర్ లోపు చెల్లించాలి. లేట్ ఫీజు (ఆలస్య రుసుము) నివారించడానికి యాప్ ద్వారా చెల్లించండి.""**
+
+*(Pronunciation / Transliteration: Priyamaina viniyogadarulara, September nelaku sambandhinchina mee vidyut bill ₹1,340, 15 October lopu chellinchali. Late fee (alasyarusu) nivarinchadaniki app dwara chellinchandi.)*"
+2026-10-09T02:04:08+00:00,806e295a,tr_07,translation,translation,cost,router,deberta,indic,"translation (cost), medium, indic_target -> Sarvam (Indic rule)",sarvam-105b,indic_target,medium,hard,128,837,0.000739,0.065,,200.343,4673.3,4873.6,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"Here is the translation of the passage into Hindi:
+
+""उस साल मानसून देर से आया, और धनौरा के किसान आसमान की तरफ उसी तरह देख रहे थे जैसे कोई उस कर्जदार को देखता है जो बार-बार पैसे चुकाने का वादा करता रहता है। जब आखिरकार बारिश हुई, तो सब कुछ एक ही बार में हुआ, और नदी अपने साथ पुल को भी बहा ले गई। 'खैर,' बूढ़ी केसरी ने अपनी साड़ी निचोड़ते हुए कहा, 'जब बारिश होती है, तो मूसलाधार होती है।'""
+
+***
+
+### Comparison of the Idiom in the Last Sentence
+
+The English idiom in the last sentence is **""when it rains, it pours,""** which means that when a series of unfortunate events happens, they usually happen all at once. 
+
+In the translation above, I chose to render this as **""जब बारिश होती है, तो मूसलाधार होती है"" (Jab barish hoti hai, toh mūslādhār hotī hai).** 
+
+Here is a step-by-step breakdown of how I arrived at this choice compared to an alternative, and why it fits the speaker's tone better:
+
+**Step 1: Analyze the literal meaning of the English idiom**
+""When it rains, it pours"" literally refers to a heavy, sudden downpour rather than a light drizzle. Metaphorically, it points to a sudden, overwhelming surge of events.
+
+**Step 2: Consider a literal, word-for-word translation**
+A literal translation would be **""जब बारिश होती है, तो वह बहती है"" (Jab barish hoti hai, toh vah bahati hai).** 
+*Why this doesn't work:* In Hindi, this phrasing sounds like a basic science statement (e.g., ""when it rains, water flows""). It completely loses the metaphorical weight of the English idiom and sounds completely out of place for a rural, elderly woman reacting to a natural disaster.
+
+**Step 3: Consider a direct idiomatic equivalent**
+Another option would be to use a Hindi proverb that means the exact same thing, such as **""जब मुसीबत आती है, तो छप्पर फाड़कर आती है"" (Jab musibat aati hai, toh chhappar faadkar aati hai - ""When trouble comes, it comes tearing through the roof"").**
+*Why this doesn't work:* While this perfectly captures the *meaning* of overwhelming misfortune, it is a very dramatic, literary, and proverbial way of speaking. The speaker in the passage is an old village woman (Kesari) who is looking at a washed-out bridge and wringing out her wet clothes. Her tone is not highly poetic or dramatic; it is grounded, colloquial, and slightly fatalistic.
+
+**Step 4: Evaluate the chosen rendering**
+I chose **""जब बारिश होती है, तो मूसलाधार होती है"" (Jab barish hoti hai, toh mūslādhār hotī hai).**
+*Why this works best:* 
+1. **Literal Context:** The sentence begins with a literal, massive downpour that washed away a bridge. By using ""मूसलाधार"" (mūslādhār), which means ""torrential"" or ""heavy,"" the idiom bridges the gap between the literal weather event and the metaphorical feeling of being overwhelmed.
+2. **Speaker's Tone:** The tone of Kesari is that of a seasoned villager. She isn't quoting a grand proverb; she is simply stating a harsh reality of nature and life. The word ""मूसलाधार"" is a common, everyday word used to describe heavy rain in the Indian subcontinent. 
+3. **Natural Flow:** It flows naturally in spoken Hindi. It sounds exactly like something an older woman in rural India would say to her neighbors while wringing out her clothes after a storm—accepting that when nature decides to strike, it strikes hard all at once."
+2026-10-09T02:04:09+00:00,806e295a,cl_01,classification,classification,speed,router,deberta,cheap,"classification (speed), easy, english -> cheap; pre-check: cheap unhealthy (7 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,easy,easy,0,0,0.0,0.0,,143.318,1183.9,1327.2,0,skipped,True,api_error on mid -> retry cheap,cheap unhealthy (7 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:10+00:00,806e295a,cl_02,classification,classification,speed,router,deberta,mid,"classification (speed), hard, romanised_indic -> mid; pre-check: mid unhealthy (7 failures in last 30 s) -> cheap",google/gemini-3.8-flash,romanised_indic,hard,easy,0,0,0.0,0.0,,150.642,892.2,1042.8,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (7 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:12+00:00,806e295a,cl_03,classification,document_extraction,quality,router,deberta,mid,"document_extraction (quality), hard, english -> frontier; pre-check: frontier unhealthy (2 failures in last 30 s) -> upper_mid",google/gemini-3.8-flash,english,hard,easy,0,0,0.0,0.0,,119.113,1168.5,1287.6,0,skipped,True,api_error on upper_mid -> retry mid,frontier unhealthy (2 failures in last 30 s) -> upper_mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:13+00:00,806e295a,cl_04,classification,classification,speed,router,deberta,mid,"classification (speed), hard, english -> mid; pre-check: mid unhealthy (8 failures in last 30 s) -> cheap",google/gemini-3.8-flash,english,hard,hard,0,0,0.0,0.0,,226.143,1129.1,1355.2,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (8 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:14+00:00,806e295a,cl_05,classification,classification,speed,router,deberta,cheap,"classification (speed), easy, english -> cheap; pre-check: cheap unhealthy (8 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,easy,easy,0,0,0.0,0.0,,185.993,1140.6,1326.6,0,skipped,True,api_error on mid -> retry cheap,cheap unhealthy (8 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:15+00:00,806e295a,cl_06,classification,classification,speed,router,deberta,mid,"classification (speed), hard, indic_script -> mid; pre-check: mid unhealthy (9 failures in last 30 s) -> cheap",google/gemini-3.8-flash,indic_script,hard,easy,0,0,0.0,0.0,,157.275,864.0,1021.3,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (9 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:17+00:00,806e295a,cl_07,classification,classification,speed,router,deberta,mid,"classification (speed), hard, english -> mid; pre-check: mid unhealthy (10 failures in last 30 s) -> cheap",google/gemini-3.8-flash,english,hard,hard,0,0,0.0,0.0,,237.489,819.9,1057.4,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (10 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:18+00:00,806e295a,de_09,document_extraction,classification,speed,router,deberta,mid,"classification (speed), hard, english -> mid; pre-check: mid unhealthy (11 failures in last 30 s) -> cheap",google/gemini-3.8-flash,english,hard,hard,0,0,0.0,0.0,,287.224,912.5,1199.7,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (11 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:19+00:00,806e295a,de_10,document_extraction,classification,speed,router,deberta,cheap,"classification (speed), medium, english -> cheap; pre-check: cheap unhealthy (11 failures in last 30 s) -> mid",google/gemini-2.5-flash-lite,english,medium,hard,0,0,0.0,0.0,,237.986,1191.3,1429.3,0,skipped,True,api_error on mid -> retry cheap,cheap unhealthy (11 failures in last 30 s) -> mid,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:21+00:00,806e295a,de_11,document_extraction,document_extraction,quality,router,deberta,indic,"document_extraction (quality), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,1097,254,0.000576,0.0507,,375.996,1203.7,1579.7,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"```json
+{
+  ""policy_number"": ""BSG/MTR/2026/0088213"",
+  ""insured_name"": ""Mrs Priyanka Kulkarni"",
+  ""registration_number"": ""MH 12 RT 4471"",
+  ""make_model"": ""Hyundai Creta SX 1.5 Diesel"",
+  ""idv"": 985000,
+  ""period_from"": ""14-Oct-2026"",
+  ""period_to"": ""13-Oct-2027"",
+  ""ncb_percent"": 35,
+  ""total_od_premium"": 19854,
+  ""total_liability_premium"": 3791,
+  ""gst"": 4256,
+  ""total_premium_payable"": 27901,
+  ""nominee_name"": ""Mr Rohan Kulkarni"",
+  ""nominee_relation"": ""Husband"",
+  ""hypothecated_to"": ""HDFC Bank Ltd, Kothrud branch""
+}
+```"
+2026-10-09T02:04:22+00:00,806e295a,de_12,document_extraction,classification,speed,router,deberta,mid,"classification (speed), hard, english -> mid; pre-check: mid unhealthy (11 failures in last 30 s) -> cheap",google/gemini-3.8-flash,english,hard,hard,0,0,0.0,0.0,,271.999,857.9,1129.9,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (11 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:25+00:00,806e295a,de_13,document_extraction,document_extraction,quality,router,deberta,indic,"document_extraction (quality), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,792,303,0.000516,0.0454,,311.884,2141.9,2453.8,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"```json
+{
+  ""complainant_name"": ""Sunita Ramesh Jadhav"",
+  ""account_number"": ""41200100556712"",
+  ""customer_id"": ""77310562"",
+  ""disputed_amount"": 24990,
+  ""transaction_date"": ""2026-09-28"",
+  ""merchant_narration"": ""POS/FLIPKART INTERNET/0928"",
+  ""card_last4"": ""3391"",
+  ""phone_complaint_ref"": ""CC2026092811207"",
+  ""date_dispute_form_submitted"": ""2026-09-29"",
+  ""regulation_cited"": ""Reserve Bank of India circular dated July 6, 2017"",
+  ""remedies_requested"": [
+    ""Refund of ₹24,990 to the account immediately"",
+    ""Payment of savings account interest from September 28 until the date of refund"",
+    ""Written status update via email at sunita.jadhav.example@gmail.com""
+  ],
+  ""escalation_threat"": ""Banking Ombudsman"",
+  ""deadline_given_days"": 7
+}
+```"
+2026-10-09T02:04:26+00:00,806e295a,cc_09,call_centre_summary,classification,speed,router,deberta,mid,"classification (speed), hard, romanised_indic -> mid; pre-check: mid unhealthy (11 failures in last 30 s) -> cheap",google/gemini-3.8-flash,romanised_indic,hard,hard,0,0,0.0,0.0,,269.125,842.6,1111.7,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (11 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:28+00:00,806e295a,cc_10,call_centre_summary,call_centre_summary,cost,router,deberta,mid,"call_centre_summary (cost), medium, english -> mid; pre-check: mid unhealthy (12 failures in last 30 s) -> cheap",google/gemini-3.8-flash,english,medium,medium,0,0,0.0,0.0,,253.192,828.8,1082.0,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (12 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:04:31+00:00,806e295a,cc_11,call_centre_summary,call_centre_summary,cost,router,deberta,indic,"call_centre_summary (cost), medium, indic_script -> Sarvam (Indic rule)",sarvam-105b,indic_script,medium,medium,1018,505,0.000759,0.0668,,408.2,2789.6,3197.8,,llm_judge:mid,False,,,False,0,none,0.0,0,False,"CRM के लिए कॉल का सारांश यहाँ दिया गया है:
+
+**1. समस्या (Problem):**
+ग्राहक (विनोद पाटिल) की ₹2,350 की एक UPI पेमेंट (Patil Kirana Store को) ""Pending"" (अटक) हो गई है। पैसे उनके सारस्वत बैंक अकाउंट से कट गए हैं, लेकिन दुकानदार को नहीं मिले। ग्राहक ने दुकानदार को कैश भी दे दिया है, इसलिए उन्हें डर है कि पैसे दो बार न कट जाएं।
+
+**2. एजेंट ने क्या बताया और क्या किया:**
+एजेंट अंजलि ने पुष्टि की कि 29 सितंबर रात 9:12 बजे का ट्रांज़ैक्शन (रेफ़रेंस नंबर: 627 299 114 508) पेंडिंग है। उन्होंने ग्राहक को NPCI के नियम के अनुसार समझाया कि यदि आज (30 सितंबर) रात 12 बजे तक ट्रांज़ैक्शन सेटल नहीं होता है, तो राशि अपने आप ग्राहक के सारस्वत बैंक अकाउंट में वापस आ जाएगी। 
+एजेंट ने ग्राहक की ओर से एक शिकायत दर्ज की, जिसका रेफ़रेंस नंबर **PF-CMP-20260930-10882** है। इसके अलावा, एजेंट ने ग्राहक को बताया कि उनका ऐप वर्ज़न पुराना (4.2) है और उन्हें इसे प्ले स्टोर से अपडेट कर लेना चाहिए।
+
+**3. ग्राहक को आगे क्या करना है (Next Steps):**
+* ग्राहक को आज (30 सितंबर) रात 12 बजे तक इंतज़ार करना है।
+* यदि 30 सितंबर रात तक पैसे खाते में वापस नहीं आते हैं, तो ग्राहक को ऐप की ""Transaction history"" में जाकर उस ट्रांज़ैक्शन पर ""Raise a dispute"" दबाना होगा या फिर से कॉल करना होगा।
+
+**4. ग्राहक का दूसरा प्रश्न और उसका उत्तर:**
+* **प्रश्न:** ""मेरी बेटी का कॉलेज फ़ीस 15 तारीख़ को ₹48,000 है। क्या इस ऐप से एक दिन में इतना जा सकता है?""
+* **उत्तर:** एजेंट ने बताया कि ग्राहक के बैंक की UPI लिमिट ₹1 लाख प्रतिदिन और एक ट्रांज़ैक्शन में ₹1 लाख है। शिक्षा संस्थानों के लिए यह लिमिट ₹5 लाख है, इसलिए ₹48,000 का पेमेंट आसानी से हो जाएगा। बस कॉलेज की UPI आईडी या QR कोड सही से चेक करने के लिए कहा गया।"
+2026-10-09T02:04:33+00:00,806e295a,cc_12,call_centre_summary,classification,speed,router,deberta,mid,"classification (speed), hard, romanised_indic -> mid; pre-check: mid unhealthy (12 failures in last 30 s) -> cheap",google/gemini-3.8-flash,romanised_indic,hard,hard,0,0,0.0,0.0,,311.607,1148.1,1459.7,0,skipped,True,api_error on cheap -> retry mid,mid unhealthy (12 failures in last 30 s) -> cheap,False,0,api_error,0.0,0,False,
+2026-10-09T02:20:02+00:00,5988d44c,de_06,document_extraction,document_extraction,quality,router,deberta,upper_mid,"document_extraction (quality), hard, english -> frontier",anthropic/claude-sonnet-5.5,english,hard,hard,0,0,0.0,0.0,,5047.298,1462.2,6509.5,0,skipped,True,api_error on frontier -> retry upper_mid,,False,0,api_error,0.0,0,False,
+2026-10-09T02:20:55+00:00,b5f15704,cl_02,classification,classification,speed,router,deberta,cheap,"classification (speed), hard, romanised_indic -> mid",google/gemini-2.5-flash-lite,romanised_indic,hard,easy,0,0,0.0,0.0,,355.3,1356.9,1712.2,0,skipped,True,api_error on mid -> retry cheap,,False,0,api_error,0.0,0,False,
